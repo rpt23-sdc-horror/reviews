@@ -4,11 +4,31 @@ CREATE DATABASE service_one;
 
 USE service_one;
 
-CREATE TABLE items (
+CREATE TABLE review (
   id int NOT NULL AUTO_INCREMENT,
-  quantity integer NOT NULL,
-  description varchar(50) NOT NULL,
-  PRIMARY KEY (ID)
+  username varchar(250),
+  comment varchar(1000),
+  verified boolean,
+  locale varchar(250),
+  upvote int,
+  downvote int,
+  created_at datetime,
+  size_rating int,
+  durability_rating int,
+  comfort_rating int,
+  stars int,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE products (
+  id int NOT NULL AUTO_INCREMENT,
+  sku_id int NOT NULL,
+  comfort_average int,
+  durability_average int,
+  stars_average int,
+  reviews_id int,
+  PRIMARY KEY (id),
+  FOREIGN KEY (reviews_id) REFERENCES review (id)
 );
 
 /*  Execute this file from the command line by typing:
