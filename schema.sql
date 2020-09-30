@@ -6,13 +6,14 @@ USE service_one;
 
 CREATE TABLE review (
   id int NOT NULL AUTO_INCREMENT,
+  product_id int NOT NULL,
   username varchar(250),
   comment varchar(1000),
   verified boolean,
   locale varchar(250),
   upvote int,
   downvote int,
-  created_at datetime,
+  created_at varchar(25),
   size_rating int,
   durability_rating int,
   comfort_rating int,
@@ -22,13 +23,13 @@ CREATE TABLE review (
 
 CREATE TABLE products (
   id int NOT NULL AUTO_INCREMENT,
-  sku_id int NOT NULL,
+  product_id int NOT NULL,
+  product_name varchar(250),
   comfort_average int,
   durability_average int,
+  size_average int,
   stars_average int,
-  reviews_id int,
-  PRIMARY KEY (id),
-  FOREIGN KEY (reviews_id) REFERENCES review (id)
+  PRIMARY KEY (id)
 );
 
 /*  Execute this file from the command line by typing:

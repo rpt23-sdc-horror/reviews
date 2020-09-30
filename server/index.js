@@ -1,8 +1,9 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var items = require('../database-mysql');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var app = express();
+const db = require('../database-mysql');
+
+const app = express();
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
