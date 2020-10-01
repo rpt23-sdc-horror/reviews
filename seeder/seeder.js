@@ -1,5 +1,7 @@
 'use strict'
 
+// Automated data generator to generate 100 fake products and 100 fake reviews randomly assigned to fake products.
+
 const helper = require('./seederHelper');
 const updateDb = require('../database-mysql/index').updateDb;
 
@@ -13,7 +15,7 @@ const seed = function(names, dates) {
       durability_average: helper.randomRating(),
       size_average: helper.randomRating(),
       stars_average: helper.randomRating()
-    }
+    };
 
     const dataTwo = {
       product_id: helper.randomSku(),
@@ -28,11 +30,11 @@ const seed = function(names, dates) {
       durability_rating: helper.randomRating(),
       comfort_rating: helper.randomRating(),
       stars: helper.randomRating()
-    }
+    };
 
     updateDb(dataOne, dataTwo);
   }
 
-}
+};
 
 module.exports = seed;

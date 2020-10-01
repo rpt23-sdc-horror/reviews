@@ -1,3 +1,7 @@
+'use strict'
+
+// Lorem Ipsum generator for comment section in reviews.
+
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const lorem = new LoremIpsum({

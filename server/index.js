@@ -1,7 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
-const db = require('../database-mysql');
 const findAll = require('../database-mysql/index').findAll;
 const findReview = require('../database-mysql/index').findReview;
 
@@ -20,7 +18,9 @@ app.get('/reviews/:productID', function(req, res) {
   })
 });
 
-app.get('/reviews/databaseTestRoute', function(req, res) {
+// This route is strictly for testing purposes.
+
+app.get('/testingRoute/databaseTestRoute', function(req, res) {
   findAll((err, result) => {
     if(err) {
       console.err(err);

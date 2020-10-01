@@ -1,4 +1,7 @@
 'use strict'
+
+// Seeding file. Executing this file will seed the database.
+
 const seed = require('./seeder');
 
 const names = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
