@@ -33,7 +33,7 @@ const randomSku = function() {
 };
 
 const randomRating = function() {
-  return Math.floor(Math.random() * 5);
+  return Math.floor(Math.random() * 6);
 };
 
 module.exports = {

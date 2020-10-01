@@ -1,13 +1,15 @@
 const assert = require('chai').assert;
 const findAll = require('../database-mysql/index').findAll;
 const helper = require('../seeder/seederHelper');
+const db = require('../database-mysql');
+const seed = require('../seeder/seeder');
 
 describe("Helper Functions", function () {
   describe("Boolean Generator", function () {
     it("should generate a boolean randoly", function () {
       const randomBool = helper.randomBool()
 
-      assert.equal("boolean", typeof randomBool);
+      assert.equal(typeof randomBool, "boolean");
     });
   });
 
@@ -21,21 +23,30 @@ describe("Helper Functions", function () {
     });
 
     it("should generate a string with a length of 6", function () {
+      const productId = [];
       const randomSku = helper.randomSku(skuStarter);
 
-      assert.equal(6, randomSku.length);
+      // Extract string without quotes.
+
+      for (let i = 0; i < randomSku.length; i++) {
+        if (randomSku[i] !== '"') {
+          productId.push(randomSku[i]);
+        }
+      }
+
+      assert.equal(productId.length, 6);
     });
   });
 
   describe("Random Name", function () {
-    const names = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
+    const array = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
 
     it("should generate a name from the list of names", function () {
-      const randomName = helper.randomName(names);
-      const index = names.indexOf(randomName);
+      const randomName = helper.randomName(array);
+      const index = array.indexOf(randomName);
       const truthiness = index > -1 ? true : false;
 
-      assert.equal(true, truthiness);
+      assert.equal(truthiness, true);
     });
   });
 
@@ -44,10 +55,10 @@ describe("Helper Functions", function () {
 
     it("should generate a date from the list of dates", function () {
       const randomDate = helper.randomDate(dates);
-      const index = names.indexOf(randomDate);
+      const index = dates.indexOf(randomDate);
       const truthiness = index > -1 ? true : false;
 
-      assert.equal(true, truthiness);
+      assert.equal(truthiness, true);
     });
   });
 
@@ -55,22 +66,50 @@ describe("Helper Functions", function () {
     it("should generate a random comment using lorem ipsum", function () {
       const randomComment = helper.randomComment();
 
-      assert.equal("string", typeof randomComment);
+      assert.equal(typeof randomComment, "string");
     });
   });
 
   describe("Random Rating", function () {
-    const ratings = [1, 2, 3, 4, 5];
+    const ratings = [0, 1, 2, 3, 4, 5];
     it("should generate a random number between 1 to 5", function () {
       const randomRating = helper.randomRating();
       const index = ratings.indexOf(randomRating);
       const truthiness = index > -1 ? true : false;
-
       assert.equal(true, truthiness);
     });
   })
 });
 
-// describe("Seeder", function () {
+xdescribe("Seeder", function () {
+  describe("Upload Data", function () {
+    const names = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
+    const dates = ['08-20-2020', '01-10-2020', '02-12-2020', '03-22-2020', '09-24-2020', '07-02-2020', '10-29-2020', '03-10-2020', '04-05-2020'];
 
-// })
+    it("Should upload mock data to the database", function () {
+      const seedPromisify =
+        (new Promise(seed(names, dates)))
+        .then(() => {
+          db.findAll((err, result) => {
+            if(err) {
+              console.error(err);
+            } else {
+              return result;
+            }
+          })
+        })
+        .then((result) => {
+          assert.equal(typeof result, 'object');
+        })
+        .then(() => {
+          db.clearDb();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+        seedPromisify();
+
+    })
+  })
+})

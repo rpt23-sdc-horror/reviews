@@ -34,7 +34,7 @@ const seed = function(names, dates) {
 
     updateDb(dataOne, dataTwo);
   }
-
+  return;
 };
 
 module.exports = seed;
