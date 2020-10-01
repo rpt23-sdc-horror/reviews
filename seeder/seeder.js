@@ -7,7 +7,7 @@ const updateDb = require('../database-mysql/index').updateDb;
 
 const seed = function(names, dates) {
 
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 0; i <= 10; i++) {
     const dataOne = {
       product_id: helper.randomSku(),
       product_name: 'Placeholder',
@@ -32,7 +32,13 @@ const seed = function(names, dates) {
       stars: helper.randomRating()
     };
 
-    updateDb(dataOne, dataTwo);
+    updateDb(dataOne, dataTwo, function (err, result) {
+      if(err) {
+        console.error(err);
+      } else {
+        return result;
+      }
+    });
   }
   return;
 };

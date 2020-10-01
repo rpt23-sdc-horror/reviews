@@ -18,7 +18,6 @@ describe("Server", function () {
     it("Should receive a response with empty data", function () {
       axios.get('http://localhost:3003/testingRoute/databaseTestRoute')
         .then(function (response) {
-          console.log(typeof response.data);
           assert.equal(typeof response.data, 'object');
         })
         .catch(function (error) {

@@ -1,8 +1,7 @@
 const assert = require('chai').assert;
-const findAll = require('../database-mysql/index').findAll;
 const helper = require('../seeder/seederHelper');
 const db = require('../database-mysql');
-const seed = require('../seeder/seeder');
+const seeder = require('../seeder/seeder');
 
 describe("Helper Functions", function () {
   describe("Boolean Generator", function () {
@@ -81,14 +80,25 @@ describe("Helper Functions", function () {
   })
 });
 
-xdescribe("Seeder", function () {
+describe("Seeder", function () {
   describe("Upload Data", function () {
     const names = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
     const dates = ['08-20-2020', '01-10-2020', '02-12-2020', '03-22-2020', '09-24-2020', '07-02-2020', '10-29-2020', '03-10-2020', '04-05-2020'];
 
     it("Should upload mock data to the database", function () {
-      const seedPromisify =
-        (new Promise(seed(names, dates)))
+      const seedPromisify = function() {
+        return new Promise((resolve, reject) => {
+          seeder(names, dates, function (err, result) {
+            if (err) {
+              reject(error);
+            } else {
+              resolve(result);
+            }
+          })
+        })
+      };
+
+      seedPromisify()
         .then(() => {
           db.findAll((err, result) => {
             if(err) {
@@ -102,14 +112,17 @@ xdescribe("Seeder", function () {
           assert.equal(typeof result, 'object');
         })
         .then(() => {
-          db.clearDb();
+          db.clearDb((err, result) => {
+            if (err) {
+              throw err;
+            } else {
+              return result;
+            }
+          });
         })
         .catch((error) => {
           console.error(error);
         });
-
-        seedPromisify();
-
     })
-  })
-})
+  });
+});
