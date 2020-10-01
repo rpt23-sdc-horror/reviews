@@ -8,8 +8,8 @@ const connection = mysql.createConnection({
   database : 'service_one'
 });
 
-const selectAll = function(callback) {
-  connection.query('SELECT * FROM items', function(err, result) {
+const findAll = function(callback) {
+  connection.query('SELECT * FROM products INNER JOIN review ON products.product_id = review.product_id', function(err, result) {
     if(err) {
       callback(err, null);
     } else {
@@ -19,7 +19,7 @@ const selectAll = function(callback) {
 };
 
 const findReview = function(id, callback) {
-  const queryStr = `SELECT * FROM products INNER JOIN review ON products.reviews_id = review.id AND products.product_id = ${id}`;
+  const queryStr = `SELECT * FROM products INNER JOIN review ON products.product_id = review. AND review.product_id = ${id}`;
 
   connection.query(queryStr, function(err, result) {
     if(err) {
@@ -52,5 +52,7 @@ const updateDb = function(data, dataTwo) {
 };
 
 module.exports = {
-  updateDb
+  updateDb,
+  findAll,
+  findReview
 };

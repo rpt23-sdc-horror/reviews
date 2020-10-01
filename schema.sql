@@ -6,7 +6,7 @@ USE service_one;
 
 CREATE TABLE review (
   id int NOT NULL AUTO_INCREMENT,
-  product_id int NOT NULL,
+  product_id varchar(25) NOT NULL,
   username varchar(250),
   comment varchar(1000),
   verified boolean,
@@ -23,7 +23,7 @@ CREATE TABLE review (
 
 CREATE TABLE products (
   id int NOT NULL AUTO_INCREMENT,
-  product_id int NOT NULL,
+  product_id varchar(25) NOT NULL,
   product_name varchar(250),
   comfort_average int,
   durability_average int,
