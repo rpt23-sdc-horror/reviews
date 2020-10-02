@@ -1,5 +1,3 @@
-'use strict'
-
 // Seeding file. Executing this file will seed the database.
 
 const seed = require('./seeder');

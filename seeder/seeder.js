@@ -1,12 +1,11 @@
-'use strict'
-
+/* eslint-disable no-plusplus */
+/* eslint-disable max-len */
 // Automated data generator to generate 100 fake products and 100 fake reviews randomly assigned to fake products.
 
 const helper = require('./seederHelper');
-const updateDb = require('../database-mysql/index').updateDb;
+const { updateDb } = require('../database-mysql/index');
 
-const seed = function(names, dates) {
-
+const seed = function (names, dates) {
   for (let i = 0; i <= 10; i++) {
     const dataOne = {
       product_id: helper.randomSku(),
@@ -14,7 +13,7 @@ const seed = function(names, dates) {
       comfort_average: helper.randomRating(),
       durability_average: helper.randomRating(),
       size_average: helper.randomRating(),
-      stars_average: helper.randomRating()
+      stars_average: helper.randomRating(),
     };
 
     const dataTwo = {
@@ -29,18 +28,17 @@ const seed = function(names, dates) {
       size_rating: helper.randomRating(),
       durability_rating: helper.randomRating(),
       comfort_rating: helper.randomRating(),
-      stars: helper.randomRating()
+      stars: helper.randomRating(),
     };
 
-    updateDb(dataOne, dataTwo, function (err, result) {
-      if(err) {
-        console.error(err);
+    updateDb(dataOne, dataTwo, (err, result) => {
+      if (err) {
+        throw (err);
       } else {
         return result;
       }
     });
   }
-  return;
 };
 
 module.exports = seed;
