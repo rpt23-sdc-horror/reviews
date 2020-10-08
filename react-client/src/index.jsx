@@ -20,7 +20,7 @@ class ReviewsModule extends React.Component {
     super();
 
     this.state = {
-      id: 4,
+      id: 2,
       reviews: [],
       averageRating: [],
       averageSize: [],
@@ -68,10 +68,11 @@ class ReviewsModule extends React.Component {
     return (
       <div>
         <button
-          style={{ width: '600px', fontFamily: 'helvetica' }}
+          style={{ width: '600px', fontFamily: 'helvetica', marginLeft: '1.2px', paddingLeft: '5px' }}
           className="collapsible"
           onClick={() => {
             const coll = document.getElementsByClassName('collapsible');
+            const row = document.getElementsByClassName('arrow');
             let i;
 
             for (i = 0; i < coll.length; i++) {
@@ -84,10 +85,14 @@ class ReviewsModule extends React.Component {
                   content.style.maxHeight = `${content.scrollHeight}px`;
                 }
               });
+
+              row[i].addEventListener('click', function () {
+                this.className.toggle('after');
+              });
             }
           }}
         >Reviews ({numberOfReviews})
-          <div style={{ float: 'right' }}>
+          <div style={{ float: 'right', marginRight: '20px', paddingRight: '1px' }}>
             <div className="rating">
               <div className="rating-upper" style={{ width: `${this.calculatePercentage(this.state.averageRating)}` }}>
                 <span>★</span>
@@ -105,9 +110,10 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
+          <div className="arrow" style={{ float: 'right', position: 'absolute', marginLeft: '458px', marginTop: '21px' }} />
         </button>
         <div className="content" style={{ width: '564px' }}>
-          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} />
+          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} />
         </div>
       </div>
     );

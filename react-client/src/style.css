@@ -12,10 +12,21 @@
   text-align: left;
   outline: none;
   font-size: 21px;
+  position: relative;
+  margin-left: '80px';
 }
 
-.active, .collapsible:hover {
+.active {
   background-color: white;
+  border-bottom: none;
+  padding-bottom: 30px;
+  position: relative;
+  margin-left: '80px';
+}
+
+.collapsible:hover {
+  background-color: white;
+  margin-left: '80px';
 }
 
 .collapsible:after {
@@ -24,10 +35,14 @@
   font-weight: bold;
   float: right;
   margin-left: 5px;
+  border-bottom: none;
+  position: relative;
+  margin-left: '80px';
 }
 
 .active:after {
   content: "\2212";
+  position: relative;
 }
 
 .content {
@@ -65,4 +80,39 @@
   padding: 0;
   display: flex;
   z-index: 0;
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 8px;
+  top: 7px;
+  transition: top 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+
+.arrow:before {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  transform-origin: 100% 30%;
+  transform: rotate(-45deg);
+  left: 0px;
+  background: rgb(17, 17, 17);
+  transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, transform-origin 200ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+
+.arrow:after {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  transform-origin: 0% 30%;
+  transform: rotate(45deg);
+  right: 0px;
+  background: rgb(17, 17, 17);
+  transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, transform-origin 200ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }

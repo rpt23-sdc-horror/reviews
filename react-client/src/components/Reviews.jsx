@@ -10,8 +10,8 @@ import '../style.css';
 const Reviews = (props) => (
   <div>
     <div style={{ float: 'left' }}>
-      <div className="rating">
-        <div className="rating-upper" style={{ width: '73%' }}>
+      <div className="rating" style={{ marginLeft: '-11.5px' }}>
+        <div className="rating-upper" style={{ width: `${props.calcPercent(props.rating)}` }}>
           <span>★</span>
           <span>★</span>
           <span>★</span>
@@ -27,10 +27,10 @@ const Reviews = (props) => (
         </div>
       </div>
       <div style={{
-        float: 'right', fontFamily: 'helvetica', paddingLeft: '18px', paddingTop: '8px', fontWeight: '0',
+        float: 'right', fontFamily: 'helvetica', paddingLeft: '18px', paddingTop: '7.5px', fontWeight: '0', paddingRight: '0px',
       }}
       >
-        {props.rating}
+        {props.rating} Stars
       </div>
     </div>
     {/* { props.reviews.map((review) => <ListItem review={review} />)} */}
