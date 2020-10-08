@@ -8,10 +8,10 @@ const app = express();
 app.use(express.static(`${__dirname}/../react-client/dist`));
 
 app.get('/reviews/:productID', (req, res) => {
-  const query = req.param.productID;
+  const query = req.params.productID;
   findReview(query, (err, result) => {
     if (err) {
-      console.err(err);
+      throw (err);
     } else {
       res.send(result);
     }

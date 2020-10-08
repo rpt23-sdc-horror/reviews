@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-else-return */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-plusplus */
@@ -6,10 +7,11 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import $ from 'jquery';
-// import Reviews from './components/Reviews.jsx';
+import $ from 'jquery';
+import Reviews from './components/Reviews.jsx';
 import './style.css';
 
 class ReviewsModule extends React.Component {
@@ -17,6 +19,7 @@ class ReviewsModule extends React.Component {
     super();
 
     this.state = {
+      id: 4,
       reviews: [],
       averageRating: [],
       averageSize: [],
@@ -24,30 +27,26 @@ class ReviewsModule extends React.Component {
       averageDurability: [],
       collapsed: true,
     };
-    this.toggleCollapsed = this.toggleCollapsed.bind(this);
   }
 
-  toggleCollapsed() {
-    this.setState({
-      collapsed: !this.collapsed,
+  componentDidMount() {
+    const productID = this.state.id;
+
+    $.ajax({
+      url: `localhost:3003/reviews/:${productID}`,
+      success: (data) => {
+        this.setState({
+          reviews: data,
+        });
+      },
+      error: (err) => {
+        throw ('err', err);
+      },
     });
   }
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: 'localhost:3003/reviews/:productID',
-  //     success: (data) => {
-  //       this.setState({
-  //         items: data,
-  //       });
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     },
-  //   });
-  // }
 
   render() {
-    let numberOfReviews = 0;
+    let numberOfReviews;
 
     if (this.state.reviews === 0 || this.state.reviews === undefined) {
       numberOfReviews = 0;
@@ -58,7 +57,7 @@ class ReviewsModule extends React.Component {
     return (
       <div>
         <button
-          style={{ width: '600px' }}
+          style={{ width: '600px', fontFamily: 'helvetica' }}
           className="collapsible"
           onClick={() => {
             const coll = document.getElementsByClassName('collapsible');
@@ -80,7 +79,7 @@ class ReviewsModule extends React.Component {
         >Reviews ({numberOfReviews})
           <div style={{ float: 'right' }}>
             <div className="rating">
-              <div className="rating-upper" style={{ width: '90%' }}>
+              <div className="rating-upper" style={{ width: '73%' }}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
@@ -98,7 +97,7 @@ class ReviewsModule extends React.Component {
           </div>
         </button>
         <div className="content" style={{ width: '564px' }}>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <Reviews reviews={this.state.reviews} />
         </div>
       </div>
     );
