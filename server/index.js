@@ -7,8 +7,10 @@ const app = express();
 
 app.use(express.static(`${__dirname}/../react-client/dist`));
 
-app.get('/reviews/:productID', (req, res) => {
+app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;
+  console.log(query);
+
   findReview(query, (err, result) => {
     if (err) {
       throw (err);

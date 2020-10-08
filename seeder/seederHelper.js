@@ -21,13 +21,7 @@ const randomDate = function (dates) {
 };
 
 const randomSku = function () {
-  const headers = ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'II', 'JJ', 'KK', 'LL', 'MM', 'OO', 'PP', 'QQ'];
-  const indexes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-  const header = headers[Math.floor(Math.random() * headers.length)];
-  const index = indexes[Math.floor(Math.random() * indexes.length)];
-  const sku = header + index + index + index + index;
-
-  return JSON.stringify(sku);
+  return Math.floor(Math.random() * 10);
 };
 
 const randomRating = function () {

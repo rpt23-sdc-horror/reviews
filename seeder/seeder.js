@@ -6,7 +6,7 @@ const helper = require('./seederHelper');
 const { updateDb } = require('../database-mysql/index');
 
 const seed = function (names, dates) {
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 1; i <= 10; i++) {
     const dataOne = {
       product_id: helper.randomSku(),
       product_name: 'Placeholder',

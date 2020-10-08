@@ -4,7 +4,7 @@
 /* eslint-disable import/extensions */
 
 import React from 'react';
-import ListItem from './ListItem.jsx';
+// import ListItem from './ListItem.jsx';
 import '../style.css';
 
 const Reviews = (props) => (
@@ -30,10 +30,10 @@ const Reviews = (props) => (
         float: 'right', fontFamily: 'helvetica', paddingLeft: '18px', paddingTop: '8px', fontWeight: '0',
       }}
       >
-        4.7 Stars
+        {props.rating}
       </div>
     </div>
-    { props.reviews.map((review) => <ListItem review={review} />)}
+    {/* { props.reviews.map((review) => <ListItem review={review} />)} */}
   </div>
 );
 

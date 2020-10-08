@@ -77,4 +77,5 @@ module.exports = {
   findAll,
   clearDb,
   findReview,
+  connection,
 };

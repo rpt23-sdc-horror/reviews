@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-else-return */
 /* eslint-disable react/button-has-type */
@@ -25,24 +26,34 @@ class ReviewsModule extends React.Component {
       averageSize: [],
       averageComfort: [],
       averageDurability: [],
-      collapsed: true,
     };
+    this.calculatePercentage = this.calculatePercentage.bind(this);
   }
 
   componentDidMount() {
     const productID = this.state.id;
 
     $.ajax({
-      url: `localhost:3003/reviews/:${productID}`,
+      url: `/api/reviews/${productID}`,
+      method: 'GET',
       success: (data) => {
         this.setState({
           reviews: data,
+          averageRating: data[0].stars_average,
+          averageSize: data[0].size_average,
+          averageComfort: data[0].comfort_average,
+          averageDurability: data[0].durability_average,
         });
       },
       error: (err) => {
         throw ('err', err);
       },
     });
+  }
+
+  calculatePercentage(rating) {
+    const percentage = rating / 5;
+    return percentage * 100;
   }
 
   render() {
@@ -74,12 +85,11 @@ class ReviewsModule extends React.Component {
                 }
               });
             }
-            this.collapsed();
           }}
         >Reviews ({numberOfReviews})
           <div style={{ float: 'right' }}>
             <div className="rating">
-              <div className="rating-upper" style={{ width: '73%' }}>
+              <div className="rating-upper" style={{ width: `${this.calculatePercentage(this.state.averageRating)}` }}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
@@ -97,7 +107,7 @@ class ReviewsModule extends React.Component {
           </div>
         </button>
         <div className="content" style={{ width: '564px' }}>
-          <Reviews reviews={this.state.reviews} />
+          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} />
         </div>
       </div>
     );
