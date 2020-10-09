@@ -8,6 +8,15 @@ import React from 'react';
 import UserReview from './UserReview.jsx';
 import '../style.css';
 
+const innerRatingStyle = {
+  float: 'right',
+  fontFamily: 'helvetica',
+  paddingLeft: '18px',
+  paddingTop: '7.5px',
+  fontWeight: '0',
+  paddingRight: '0px',
+};
+
 const Reviews = (props) => (
   <div>
     <div>
@@ -28,9 +37,9 @@ const Reviews = (props) => (
             <span>★</span>
           </div>
         </div>
-        <div style={{
-          float: 'right', fontFamily: 'helvetica', paddingLeft: '18px', paddingTop: '7.5px', fontWeight: '0', paddingRight: '0px',
-        }}
+        <div
+          className="inner-rating"
+          style={innerRatingStyle}
         >
           {props.rating} Stars
         </div>
