@@ -116,3 +116,22 @@
   background: rgb(17, 17, 17);
   transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, transform-origin 200ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
+
+.writeReview {
+  cursor: pointer;
+  position: relative;
+  font-family: Helvetica;
+  margin-top: 30px;
+  margin-left: -9px;
+  width: 114px
+}
+
+.writeReview:hover {
+  cursor: pointer;
+  position: relative;
+  text-decoration-line: underline;
+  font-family: Helvetica;
+  margin-top: 30px;
+  margin-left: -9px;
+  width: 114px
+}

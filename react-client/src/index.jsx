@@ -68,11 +68,10 @@ class ReviewsModule extends React.Component {
     return (
       <div>
         <button
-          style={{ width: '600px', fontFamily: 'helvetica', marginLeft: '1.2px', paddingLeft: '5px' }}
+          style={{ width: '400px', fontFamily: 'helvetica', marginLeft: '1.2px', paddingLeft: '5px' }}
           className="collapsible"
           onClick={() => {
             const coll = document.getElementsByClassName('collapsible');
-            const row = document.getElementsByClassName('arrow');
             let i;
 
             for (i = 0; i < coll.length; i++) {
@@ -84,10 +83,6 @@ class ReviewsModule extends React.Component {
                 } else {
                   content.style.maxHeight = `${content.scrollHeight}px`;
                 }
-              });
-
-              row[i].addEventListener('click', function () {
-                this.className.toggle('after');
               });
             }
           }}
@@ -110,10 +105,11 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
-          <div className="arrow" style={{ float: 'right', position: 'absolute', marginLeft: '458px', marginTop: '21px' }} />
+          <div className="arrow" style={{ float: 'right', position: 'absolute', marginLeft: '258px', marginTop: '21px' }} />
         </button>
-        <div className="content" style={{ width: '564px' }}>
+        <div className="content" style={{ width: '400px' }}>
           <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} />
+          <span />
         </div>
       </div>
     );
