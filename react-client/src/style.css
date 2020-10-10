@@ -137,18 +137,43 @@
 }
 
 .username {
-  float: 'right';
-  font-family: 'helvetica';
-  padding-left: '18px';
-  padding-top: '7.5px';
-  font-weight: '0';
-  padding-right: '0px';
+  float: right;
+  font-family: helvetica;
+  padding-left: 18px;
+  padding-top: 7.5px;
+  font-weight: 0;
+  padding-right: 0px;
 }
 
 .comment {
-  float: 'left';
-  position: 'relative';
-  font-family: 'helvetica';
-  margin-left: '-10px';
-  margin-top: '-10px';
+  float: left;
+  position: relative;
+  font-family: helvetica;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+
+.moreReviews {
+  width: 114px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  font-family: Helvetica;
+  padding-top: 31%;
+  margin-top: -10px;
+  margin-left: -9px;
+}
+
+.moreReviews:hover {
+  width: 114px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  text-emphasis: bold;
+  text-decoration-line: underline;
+  font-family: Helvetica;
+  padding-top: 31%;
+  margin-top: -10px;
+  margin-left: -9px;
 }

@@ -21,11 +21,13 @@ const userCommentStyle = {
   position: 'relative',
   fontFamily: 'helvetica',
   marginLeft: '-10px',
-  marginTop: '-10px',
+  marginTop: '-15px',
+  lineHeight: '2',
+  paddingBottom: '20px',
 };
 
 const UserReview = (props) => (
-  <div style={{ position: 'relative' }}>
+  <div style={{ position: 'relative', paddingTop: '10px' }}>
     <div
       className="rating"
       style={{
@@ -58,6 +60,7 @@ const UserReview = (props) => (
       style={userCommentStyle}
     > {props.review.comment}
     </div>
+    <br />
   </div>
 );
 

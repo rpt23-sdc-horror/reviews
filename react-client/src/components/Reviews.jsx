@@ -51,6 +51,8 @@ const Reviews = (props) => (
     <div>
       { props.reviews.map((review) => <UserReview review={review} calcPercent={props.calcPercent} />)}
     </div>
+    <br />
+    <div className="moreReviews">More Reviews</div>
   </div>
 );
 
