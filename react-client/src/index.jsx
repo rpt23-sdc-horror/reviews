@@ -116,4 +116,6 @@ class ReviewsModule extends React.Component {
   }
 }
 
+export default ReviewsModule;
+
 ReactDOM.render(<ReviewsModule />, document.getElementById('reviews-module'));
