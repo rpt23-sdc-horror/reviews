@@ -4,35 +4,11 @@
 import React from 'react';
 import '../style.css';
 
-const userNameStyle = {
-  fontFamily: 'helvetica',
-  color: 'lightgray',
-  float: 'right',
-  position: 'relative',
-  marginLeft: '-20px',
-  marginTop: '-21px',
-  marginRight: '20px',
-  fontSize: '18',
-  textEmphasis: '-10',
-};
-
-const userCommentStyle = {
-  float: 'left',
-  position: 'relative',
-  fontFamily: 'helvetica',
-  marginLeft: '-10px',
-  marginTop: '-15px',
-  lineHeight: '2',
-  paddingBottom: '20px',
-};
-
 const UserReview = (props) => (
-  <div style={{ position: 'relative', paddingTop: '10px' }}>
+  <div id="user-review">
     <div
       className="rating"
-      style={{
-        marginLeft: '-11.5px', marginTop: '20px', marginRight: '10px', position: 'relative', height: '55px', fontSize: '16', width: '320px', paddingRight: '10px',
-      }}
+      id="user-rating"
     >
       <div className="rating-upper" style={{ width: `${props.calcPercent(props.stars)}` }}>
         <span>★</span>
@@ -50,14 +26,14 @@ const UserReview = (props) => (
       </div>
       <div
         className="username"
-        style={userNameStyle}
+        id="username"
       > {props.review.username} - {props.review.created_at}
       </div>
     </div>
     <br />
     <div
       className="comment"
-      style={userCommentStyle}
+      id="comment"
     > {props.review.comment}
     </div>
     <br />

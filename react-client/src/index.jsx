@@ -68,7 +68,6 @@ class ReviewsModule extends React.Component {
     return (
       <div>
         <button
-          style={{ width: '400px', fontFamily: 'helvetica', marginLeft: '1.2px', paddingLeft: '5px' }}
           className="collapsible"
           onClick={() => {
             const coll = document.getElementsByClassName('collapsible');
@@ -87,7 +86,7 @@ class ReviewsModule extends React.Component {
             }
           }}
         >Reviews ({numberOfReviews})
-          <div style={{ float: 'right', marginRight: '20px', paddingRight: '1px' }}>
+          <div className="indexRating">
             <div className="rating">
               <div className="rating-upper" style={{ width: `${this.calculatePercentage(this.state.averageRating)}` }}>
                 <span>★</span>
@@ -105,9 +104,9 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
-          <div className="arrow" style={{ float: 'right', position: 'absolute', marginLeft: '258px', marginTop: '21px' }} />
+          <div className="arrow" id="arrow" />
         </button>
-        <div className="content" style={{ width: '400px' }}>
+        <div className="content" id="content">
           <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} />
           <span />
         </div>

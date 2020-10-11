@@ -8,20 +8,11 @@ import React from 'react';
 import UserReview from './UserReview.jsx';
 import '../style.css';
 
-const innerRatingStyle = {
-  float: 'right',
-  fontFamily: 'helvetica',
-  paddingLeft: '18px',
-  paddingTop: '7.5px',
-  fontWeight: '0',
-  paddingRight: '0px',
-};
-
 const Reviews = (props) => (
   <div>
     <div>
       <div style={{ float: 'left' }}>
-        <div className="rating" style={{ marginLeft: '-11.5px' }}>
+        <div className="rating" id="review-rating">
           <div className="rating-upper" style={{ width: `${props.calcPercent(props.rating)}` }}>
             <span>★</span>
             <span>★</span>
@@ -39,7 +30,7 @@ const Reviews = (props) => (
         </div>
         <div
           className="inner-rating"
-          style={innerRatingStyle}
+          id="review-inner-rating"
         >
           {props.rating} Stars
         </div>
