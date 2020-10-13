@@ -20,10 +20,6 @@ const randomDate = function (dates) {
   return dates[Math.floor(Math.random() * dates.length)];
 };
 
-const randomSku = function () {
-  return Math.floor(Math.random() * 10);
-};
-
 const randomRating = function () {
   return Math.floor(Math.random() * 6);
 };
@@ -32,7 +28,6 @@ module.exports = {
   randomName,
   randomBool,
   randomDate,
-  randomSku,
   randomRating,
   randomComment,
 };

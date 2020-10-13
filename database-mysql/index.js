@@ -30,9 +30,8 @@ const findReview = function (id, callback) {
   });
 };
 
-const updateDb = function (data, dataTwo, callback) {
+const insertProducts = function (data, callback) {
   const productsQuery = `INSERT INTO products(product_id, product_name, comfort_average, durability_average, size_average, stars_average) VALUES(${data.product_id}, '${data.product_name}', ${data.comfort_average}, ${data.durability_average}, ${data.size_average}, ${data.stars_average})`;
-  const reviewQuery = `INSERT INTO review(product_id, username, comment, verified, locale, upvote, downvote, created_at, size_rating, durability_rating, comfort_rating, stars) VALUES(${dataTwo.product_id}, '${dataTwo.username}', '${dataTwo.comment}', ${dataTwo.verified}, '${dataTwo.locale}', ${dataTwo.upvote}, ${dataTwo.downvote}, '${dataTwo.created_at}', ${dataTwo.size_rating}, ${dataTwo.durability_rating}, ${dataTwo.comfort_rating}, ${dataTwo.stars})`;
 
   connection.query(productsQuery, (err, result) => {
     if (err) {
@@ -41,6 +40,10 @@ const updateDb = function (data, dataTwo, callback) {
       callback(null, result);
     }
   });
+};
+
+const insertReviews = function (data, callback) {
+  const reviewQuery = `INSERT INTO review(product_id, username, comment, verified, locale, upvote, downvote, created_at, size_rating, durability_rating, comfort_rating, stars) VALUES(${data.product_id}, '${data.username}', '${data.comment}', ${data.verified}, '${data.locale}', ${data.upvote}, ${data.downvote}, '${data.created_at}', ${data.size_rating}, ${data.durability_rating}, ${data.comfort_rating}, ${data.stars})`;
 
   connection.query(reviewQuery, (err, result) => {
     if (err) {
@@ -73,7 +76,8 @@ const clearDb = function (callback) {
 };
 
 module.exports = {
-  updateDb,
+  insertProducts,
+  insertReviews,
   findAll,
   clearDb,
   findReview,
