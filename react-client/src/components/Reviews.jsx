@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
@@ -12,8 +15,8 @@ const Reviews = (props) => (
   <div>
     <div>
       <div style={{ float: 'left' }}>
-        <div className="rating" id="review-rating">
-          <div className="rating-upper" style={{ width: `${props.calcPercent(props.rating)}` }}>
+        <div className={!props.show ? 'rating' : 'display-none'} id="review-rating">
+          <div className={!props.show ? 'rating-upper' : 'display-none'} style={{ width: `${props.calcPercent(props.rating)}%` }}>
             <span>★</span>
             <span>★</span>
             <span>★</span>
@@ -29,7 +32,7 @@ const Reviews = (props) => (
           </div>
         </div>
         <div
-          className="inner-rating"
+          className={!props.show ? 'inner-rating' : 'display-none'}
           id="review-inner-rating"
         >
           {props.rating} Stars
@@ -40,10 +43,10 @@ const Reviews = (props) => (
     <div className="writeReview">Write a Review</div>
     <br />
     <div>
-      { props.reviews.map((review) => <UserReview review={review} calcPercent={props.calcPercent} />)}
+      { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} />)}
     </div>
     <br />
-    <div className="moreReviews">More Reviews</div>
+    <div className="moreReviews" type="button" onClick={props.showModal}>More Reviews</div>
   </div>
 );
 

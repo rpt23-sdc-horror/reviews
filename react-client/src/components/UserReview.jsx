@@ -10,14 +10,14 @@ const UserReview = (props) => (
       className="rating"
       id="user-rating"
     >
-      <div className="rating-upper" style={{ width: `${props.calcPercent(props.stars)}` }}>
+      <div className={!props.show ? 'rating-upper' : 'display-none'} style={{ width: `${props.calcPercent(props.stars)}%` }}>
         <span>★</span>
         <span>★</span>
         <span>★</span>
         <span>★</span>
         <span>★</span>
       </div>
-      <div className="rating-lower">
+      <div className={!props.show ? 'rating-lower' : 'display-none'}>
         <span>★</span>
         <span>★</span>
         <span>★</span>

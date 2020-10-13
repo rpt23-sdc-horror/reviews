@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-else-return */
@@ -10,6 +13,7 @@
 /* eslint-disable import/extensions */
 
 import React from 'react';
+import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Reviews from './components/Reviews.jsx';
@@ -26,14 +30,17 @@ class ReviewsModule extends React.Component {
       averageSize: [],
       averageComfort: [],
       averageDurability: [],
+      averageRatingPercent: [],
+      show: false,
     };
     this.calculatePercentage = this.calculatePercentage.bind(this);
-    this.toggleClass = this.toggleClass.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
     // const url = window.location.pathname.split('/');
     // const productID = url[1];
+    Modal.setAppElement('body');
     const productID = this.state.id;
 
     $.ajax({
@@ -46,7 +53,6 @@ class ReviewsModule extends React.Component {
           averageSize: data[0].size_average,
           averageComfort: data[0].comfort_average,
           averageDurability: data[0].durability_average,
-          active: false,
         });
       },
       error: (err) => {
@@ -55,10 +61,14 @@ class ReviewsModule extends React.Component {
     });
   }
 
-  toggleClass() {
-    const currentState = this.state.active;
-    this.setState({ active: !currentState });
+  showModal() {
+    this.setState((prevState) => ({ show: !prevState.show }));
   }
+
+  // toggleClass() {
+  //   const currentState = this.state.active;
+  //   this.setState({ active: !currentState });
+  // }
 
   calculatePercentage(rating) {
     const percentage = rating / 5;
@@ -76,6 +86,17 @@ class ReviewsModule extends React.Component {
 
     return (
       <div>
+        <Modal
+          isOpen={this.state.show}
+          onRequestClose={this.showModal}
+          contentLabel="My dialog"
+          className={this.state.show ? 'mymodal' : 'display-none'}
+          overlayClassName="myoverlay"
+          closeTimeoutMS={500}
+        >
+          <div>My modal dialog.</div>
+          <div onClick={this.showModal} className="close-modal" id="close-modal">X</div>
+        </Modal>
         <button
           className="collapsible"
           onClick={() => {
@@ -93,12 +114,11 @@ class ReviewsModule extends React.Component {
                 }
               });
             }
-            this.toggleClass();
           }}
         >Reviews ({numberOfReviews})
-          <div className="indexRating">
-            <div className="rating">
-              <div className="rating-upper" style={{ width: `${this.calculatePercentage(this.state.averageRating)}` }}>
+          <div className={!this.state.show ? 'indexRating' : 'display-none'}>
+            <div className={!this.state.show ? 'rating' : 'display-none'}>
+              <div className={!this.state.show ? 'rating-upper' : 'display-none'} style={{ width: `${this.calculatePercentage(this.state.averageRating)}%` }}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
@@ -114,10 +134,10 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
-          <div className={this.state.active ? 'arrow::before' : 'arrow::after'} id="arrow" />
+          <div className="arrow" id="arrow" />
         </button>
         <div className="content" id="content">
-          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} />
+          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} showModal={this.showModal} show={this.state.show} />
           <span />
         </div>
       </div>
