@@ -125,7 +125,7 @@
   text-emphasis: -10;
 }
 
-.arrow {
+/* .arrow {
   float: right;
   position: absolute;
   margin-left: 268px;
@@ -137,13 +137,13 @@
   height: 8px;
   top: 7px;
   transition: top 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
-}
+} */
 
 #arrow {
   position: absolute;
 }
 
-.arrow:before {
+.arrow {
   content: "";
   display: inline;
   position: absolute;
@@ -156,7 +156,7 @@
   transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, transform-origin 200ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
 
-.arrow:after {
+.arrow::after {
   content: "";
   display: inline;
   position: absolute;

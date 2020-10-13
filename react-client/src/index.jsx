@@ -20,7 +20,7 @@ class ReviewsModule extends React.Component {
     super();
 
     this.state = {
-      id: 2,
+      id: 1,
       reviews: [],
       averageRating: [],
       averageSize: [],
@@ -28,9 +28,12 @@ class ReviewsModule extends React.Component {
       averageDurability: [],
     };
     this.calculatePercentage = this.calculatePercentage.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
   componentDidMount() {
+    // const url = window.location.pathname.split('/');
+    // const productID = url[1];
     const productID = this.state.id;
 
     $.ajax({
@@ -43,12 +46,18 @@ class ReviewsModule extends React.Component {
           averageSize: data[0].size_average,
           averageComfort: data[0].comfort_average,
           averageDurability: data[0].durability_average,
+          active: false,
         });
       },
       error: (err) => {
         throw ('err', err);
       },
     });
+  }
+
+  toggleClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
   }
 
   calculatePercentage(rating) {
@@ -84,6 +93,7 @@ class ReviewsModule extends React.Component {
                 }
               });
             }
+            this.toggleClass();
           }}
         >Reviews ({numberOfReviews})
           <div className="indexRating">
@@ -104,7 +114,7 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
-          <div className="arrow" id="arrow" />
+          <div className={this.state.active ? 'arrow::before' : 'arrow::after'} id="arrow" />
         </button>
         <div className="content" id="content">
           <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} />

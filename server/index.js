@@ -9,6 +9,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/../react-client/dist`));
+app.use((req, res, next) => {
+  res.set({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
+  });
+  next();
+});
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;

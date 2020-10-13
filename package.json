@@ -8,7 +8,8 @@
     "server-dev": "nodemon server/index.js",
     "test": "mocha -r esm --exit || true",
     "test-client": "mocha --r @babel/register --r ./test/helpers.js --r ./test/dom.js 'src/**/*.spec.js'",
-    "seed": "node seeder/index.js"
+    "seed": "node seeder/index.js",
+    "set-up": "mysql -u root < schema.sql"
   },
   "author": "Martin Sung",
   "license": "MIT",
