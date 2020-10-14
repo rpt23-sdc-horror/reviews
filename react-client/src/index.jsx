@@ -41,6 +41,7 @@ class ReviewsModule extends React.Component {
     // const url = window.location.pathname.split('/');
     // const productID = url[1];
     const productID = this.state.id;
+
     Modal.setAppElement('body');
 
     $.ajax({
