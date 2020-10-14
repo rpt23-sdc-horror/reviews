@@ -40,8 +40,8 @@ class ReviewsModule extends React.Component {
   componentDidMount() {
     // const url = window.location.pathname.split('/');
     // const productID = url[1];
-    Modal.setAppElement('body');
     const productID = this.state.id;
+    Modal.setAppElement('body');
 
     $.ajax({
       url: `/api/reviews/${productID}`,
