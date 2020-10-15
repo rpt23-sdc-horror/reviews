@@ -1,0 +1,94 @@
+.reviewsParent {
+  float: left;
+  margin-left: -8px;
+}
+
+.moreReviews {
+  width: 114px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  font-family: Helvetica;
+  padding-top: 31%;
+  margin-top: -10px;
+  margin-left: -15px;
+}
+
+.moreReviews:hover {
+  text-decoration-line: underline;
+  width: 114px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  font-family: Helvetica;
+  padding-top: 31%;
+  padding-bottom: 25%;
+  margin-top: -10px;
+  margin-left: -15px;
+}
+
+.writeReview {
+  cursor: pointer;
+  position: relative;
+  font-family: Helvetica;
+  margin-top: 30px;
+  margin-left: -15.5px;
+  width: 114px
+}
+
+.writeReview:hover {
+  cursor: pointer;
+  position: relative;
+  text-decoration-line: underline;
+  font-family: Helvetica;
+  margin-top: 30px;
+  margin-left: -15.5px;
+  width: 114px
+}
+
+.rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: lightgray;
+  font-size: 20px;
+  height: 20px;
+  width: auto;
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+
+.ratingUpper {
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ratingLower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}
+
+#reviewRating {
+  width: -11.5px;
+  margin-left: -10px;
+}
+
+#reviewInnerRating {
+  float: right;
+  font-family: Helvetica;
+  padding-left: 18px;
+  padding-top: 7.5px;
+  font-weight: 0;
+  padding-right: 0px;
+}
+
+.userWrapper {
+  margin-left: -5.5px;
+}
