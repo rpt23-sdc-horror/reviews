@@ -27,10 +27,8 @@ const UserReview = (props) => (
       </div>
     </div>
     <br />
-    <div
-      className="comment"
-      id="comment"
-    > {props.review.comment}
+    <div className={styles.comment}>
+      {props.review.comment}
     </div>
     <br />
   </div>
