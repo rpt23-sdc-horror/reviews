@@ -93,7 +93,7 @@
 
 #review-inner-rating {
   float: right;
-  font-family: helvetica;
+  font-family: Helvetica;
   padding-left: 18px;
   padding-top: 7.5px;
   font-weight: 0;
@@ -176,7 +176,7 @@
 
 .username {
   text-emphasis: -10;
-  font-family: helvetica;
+  font-family: Helvetica;
   font-size: 16.5;
   text-align: left;
   color: darkgray;
@@ -200,7 +200,7 @@
 .comment {
   float: left;
   position: relative;
-  font-family: helvetica;
+  font-family: Helvetica;
   margin-left: -10px;
   margin-top: -15px;
   line-height: 1.9;
