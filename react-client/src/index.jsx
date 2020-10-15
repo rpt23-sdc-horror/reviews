@@ -35,6 +35,7 @@ class ReviewsModule extends React.Component {
     };
     this.calculatePercentage = this.calculatePercentage.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.collapsibleClick = this.collapsibleClick.bind(this);
   }
 
   componentDidMount() {
@@ -76,6 +77,18 @@ class ReviewsModule extends React.Component {
     return percentage * 100;
   }
 
+  collapsibleClick() {
+    const coll = document.getElementsByClassName('collapsible');
+
+    coll[0].classList.toggle('active');
+    const content = coll[0].nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    }
+  }
+
   render() {
     let numberOfReviews;
 
@@ -100,22 +113,7 @@ class ReviewsModule extends React.Component {
         </Modal>
         <button
           className="collapsible"
-          onClick={() => {
-            const coll = document.getElementsByClassName('collapsible');
-            let i;
-
-            for (i = 0; i < coll.length; i++) {
-              coll[i].addEventListener('click', function () {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                  content.style.maxHeight = null;
-                } else {
-                  content.style.maxHeight = `${content.scrollHeight}px`;
-                }
-              });
-            }
-          }}
+          onClick={this.collapsibleClick}
         >Reviews ({numberOfReviews})
           <div className={!this.state.show ? 'indexRating' : 'display-none'}>
             <div className={!this.state.show ? 'rating' : 'display-none'}>
