@@ -14,7 +14,7 @@ import '../style.css';
 const Reviews = (props) => (
   <div>
     <div>
-      <div style={{ float: 'left' }}>
+      <div style={{ float: 'left', marginLeft: '-8px' }}>
         <div className={!props.show ? 'rating' : 'display-none'} id="review-rating">
           <div className={!props.show ? 'rating-upper' : 'display-none'} style={{ width: `${props.calcPercent(props.rating)}%` }}>
             <span>★</span>

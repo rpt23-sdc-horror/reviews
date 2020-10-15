@@ -1,10 +1,10 @@
-// import React from 'react';
-// import '../style.css';
+import React from 'react';
+import '../style.css';
 
-// const Modal = (props) => (
-//   <div className="modal">
-//     Hello
-//   </div>
-// );
+const Modal = (props) => (
+  <div className="modal">
+    {props}
+  </div>
+);
 
-// export default Modal;
+export default Modal;

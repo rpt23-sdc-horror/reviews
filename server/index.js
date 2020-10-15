@@ -13,7 +13,6 @@ app.use(cors({
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;
-  console.log(query);
 
   findReview(query, (err, result) => {
     if (err) {
