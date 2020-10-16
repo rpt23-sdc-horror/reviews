@@ -1,12 +1,8 @@
 /* eslint-disable func-names */
 const mysql = require('mysql');
+const config = require('./config');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'service_one',
-});
+const connection = mysql.createConnection(config);
 
 const findAll = function (callback) {
   connection.query('SELECT * FROM products INNER JOIN review ON products.product_id = review.product_id', (err, result) => {
