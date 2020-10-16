@@ -6,10 +6,10 @@ const { findReview } = require('../database-mysql/index');
 
 const app = express();
 
-app.use(express.static(`${__dirname}/../react-client/dist`));
 app.use(cors({
   origin: '*',
 }));
+app.use(express.static(`${__dirname}/../react-client/dist`));
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;

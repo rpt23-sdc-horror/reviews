@@ -40,9 +40,9 @@ class ReviewsModule extends React.Component {
   }
 
   componentDidMount() {
-    const productID = this.state.id;
-    // const url = window.location.pathname.split('/');
-    // const productID = url[2];
+    // const productID = this.state.id;
+    const url = window.location.pathname.split('/');
+    const productID = url[3];
 
     Modal.setAppElement('body');
 
