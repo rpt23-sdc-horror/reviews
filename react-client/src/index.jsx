@@ -18,6 +18,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Reviews from './components/Reviews.jsx';
 import './style.css';
+import styles from './styles/Index.module.css';
 
 class ReviewsModule extends React.Component {
   constructor() {
@@ -78,9 +79,9 @@ class ReviewsModule extends React.Component {
   }
 
   collapsibleClick() {
-    const coll = document.getElementsByClassName('collapsible');
+    const coll = document.getElementsByClassName(styles.collapsible);
 
-    coll[0].classList.toggle('active');
+    coll[0].classList.toggle(styles.active);
     const content = coll[0].nextElementSibling;
     if (content.style.maxHeight) {
       content.style.maxHeight = null;
@@ -112,19 +113,19 @@ class ReviewsModule extends React.Component {
           <div onClick={this.showModal} className="close-modal" id="close-modal">X</div>
         </Modal>
         <button
-          className="collapsible"
+          className={styles.collapsible}
           onClick={this.collapsibleClick}
         >Reviews ({numberOfReviews})
-          <div className={!this.state.show ? 'indexRating' : 'display-none'}>
-            <div className={!this.state.show ? 'rating' : 'display-none'}>
-              <div className={!this.state.show ? 'rating-upper' : 'display-none'} style={{ width: `${this.calculatePercentage(this.state.averageRating)}%` }}>
+          <div className={!this.state.show ? styles.indexRating : 'display-none'}>
+            <div className={!this.state.show ? styles.rating : 'display-none'}>
+              <div className={!this.state.show ? styles.ratingUpper : 'display-none'} style={{ width: `${this.calculatePercentage(this.state.averageRating)}%` }}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
               </div>
-              <div className="rating-lower">
+              <div className={styles.ratingLower}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
@@ -135,7 +136,7 @@ class ReviewsModule extends React.Component {
           </div>
           <div className="arrow" id="arrow" />
         </button>
-        <div className="content" id="content">
+        <div className={styles.content}>
           <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} showModal={this.showModal} show={this.state.show} />
           <span />
         </div>

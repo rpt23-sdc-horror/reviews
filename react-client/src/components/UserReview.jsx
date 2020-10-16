@@ -2,7 +2,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import '../style.css';
 import styles from '../styles/UserReviews.module.css';
 
 const UserReview = (props) => (

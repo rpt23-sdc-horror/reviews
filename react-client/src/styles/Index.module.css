@@ -1,0 +1,91 @@
+.collapsible {
+  background-color: white;
+  color: black;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 18px;
+  padding-left: 1.2px;
+  width: 324px;
+  border-top: 0.7px solid darkgray;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  text-align: left;
+  outline: none;
+  font-size: 21px;
+  position: relative;
+  margin-left: '1.2px';
+  font-family: Helvetica;
+}
+
+.active {
+  background-color: white;
+  border-bottom: none;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.collapsible:hover {
+  background-color: white;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  border-bottom: none;
+  position: relative;
+  margin-left: '80px';
+}
+
+.active:after {
+  content: "\2212";
+  position: relative;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+  width: 288px;
+  border-bottom: 0.7px solid darkgray;
+}
+
+.indexRating {
+  float: right;
+  margin-right: 20px;
+  padding-right: 1px;
+}
+
+.rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: lightgray;
+  font-size: 20px;
+  height: 20px;
+  width: auto;
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+
+.ratingUpper {
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ratingLower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}

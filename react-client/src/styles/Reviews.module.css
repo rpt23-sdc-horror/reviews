@@ -9,7 +9,7 @@
   cursor: pointer;
   position: relative;
   font-family: Helvetica;
-  padding-top: 31%;
+  padding-top: 26%;
   margin-top: -10px;
   margin-left: -15px;
 }
@@ -21,8 +21,7 @@
   cursor: pointer;
   position: relative;
   font-family: Helvetica;
-  padding-top: 31%;
-  padding-bottom: 25%;
+  padding-top: 26%;
   margin-top: -10px;
   margin-left: -15px;
 }
@@ -91,4 +90,5 @@
 
 .userWrapper {
   margin-left: -5.5px;
+  margin-top: -1px;
 }
