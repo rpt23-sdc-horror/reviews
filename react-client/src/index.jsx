@@ -134,7 +134,7 @@ class ReviewsModule extends React.Component {
               </div>
             </div>
           </div>
-          <div className="arrow" id="arrow" />
+          <div className={styles.arrow} />
         </button>
         <div className={styles.content}>
           <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} showModal={this.showModal} show={this.state.show} />

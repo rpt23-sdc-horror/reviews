@@ -12,7 +12,7 @@ import UserReview from './UserReview.jsx';
 import styles from '../styles/Reviews.module.css';
 
 const Reviews = (props) => (
-  <div style={{ paddingBottom: '3%', paddingTop: '5%' }}>
+  <div className={styles.parentDiv}>
     <div>
       <div className={styles.reviewsParent}>
         <div className={!props.show ? styles.rating : 'display-none'} id={styles.reviewRating}>
