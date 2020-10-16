@@ -21,7 +21,7 @@ const randomDate = function (dates) {
 };
 
 const randomRating = function () {
-  return Math.random() * 6;
+  return Math.random() * 5;
 };
 
 module.exports = {
