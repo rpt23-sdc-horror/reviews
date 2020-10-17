@@ -4,9 +4,9 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
 const { assert } = require('chai');
-const helper = require('../seeder/seederHelper');
-const db = require('../database-mysql');
-const seeder = require('../seeder/seeder');
+const helper = require('../../seeder/seederHelper');
+const db = require('../../database-mysql');
+const seeder = require('../../seeder/seeder');
 
 describe('Helper Functions', function () {
   describe('Boolean Generator', function () {
@@ -14,31 +14,6 @@ describe('Helper Functions', function () {
       const randomBool = helper.randomBool();
 
       assert.equal(typeof randomBool, 'boolean');
-    });
-  });
-
-  describe('Random Sku', function () {
-    const skuStarter = ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'II', 'JJ', 'KK', 'LL', 'MM', 'OO', 'PP', 'QQ'];
-
-    it('should generate a random sku in string format', function () {
-      const randomSku = helper.randomSku(skuStarter);
-
-      assert.equal('string', typeof randomSku);
-    });
-
-    it('should generate a string with a length of 6', function () {
-      const productId = [];
-      const randomSku = helper.randomSku(skuStarter);
-
-      // Extract string without quotes.
-
-      for (let i = 0; i < randomSku.length; i++) {
-        if (randomSku[i] !== '"') {
-          productId.push(randomSku[i]);
-        }
-      }
-
-      assert.equal(productId.length, 6);
     });
   });
 
@@ -76,12 +51,10 @@ describe('Helper Functions', function () {
 
   // eslint-disable-next-line prefer-arrow-callback
   describe('Random Rating', function () {
-    const ratings = [0, 1, 2, 3, 4, 5];
-    it('should generate a random number between 1 to 5', function () {
+    it('should generate a random number', function () {
       const randomRating = helper.randomRating();
-      const index = ratings.indexOf(randomRating);
-      const truthiness = index > -1;
-      assert.equal(true, truthiness);
+
+      assert.equal('number', typeof randomRating);
     });
   });
 });

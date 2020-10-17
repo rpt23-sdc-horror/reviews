@@ -2,8 +2,8 @@
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
 const { assert } = require('chai');
-const seeder = require('../seeder/seeder');
-const db = require('../database-mysql');
+const seeder = require('../../seeder/seeder');
+const db = require('../../database-mysql');
 
 describe('Database', function () {
   describe('Update Database', function () {
