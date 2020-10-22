@@ -6,8 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "test": "mocha -r esm './test/backend_spec' --exit || true",
-    "test-client": "mocha --r @babel/register --r ./test/client_spec/helpers.js --r ./test/client_spec/dom.js './test/client_spec/*.spec.js'",
+    "test": "mocha --r esm --r ignore-styles './test/backend_spec' --exit || true",
+    "test-client": "mocha --r ignore-styles --r @babel/register --r ./test/client_spec/helpers.js --r ./test/client_spec/dom.js './test/client_spec/*.spec.js' --exit || true",
     "seed": "node seeder/index.js",
     "set-up": "mysql -u root < schema.sql"
   },
@@ -30,6 +30,7 @@
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "ignore-styles": "^5.0.1",
     "jsdom": "^16.4.0",
     "mocha": "^8.2.0",
     "mysql-db-seed": "0.0.4",
@@ -41,6 +42,7 @@
     "@babel/plugin-transform-runtime": "^7.11.5",
     "angular": "^1.6.3",
     "axios": "^0.20.0",
+    "babel-plugin-react-css-modules": "^5.2.6",
     "body-parser": "^1.17.2",
     "cors": "^2.8.5",
     "enzyme": "^3.11.0",
