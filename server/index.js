@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-
 const { findReview } = require('../database-mysql/index');
 
 const app = express();

@@ -144,7 +144,7 @@ class ReviewsModule extends React.Component {
             calcPercent={this.calculatePercentage}
             showModal={this.showModal}
             show={this.state.show}
-            className="reviewsComponent"
+            className="reviews-component"
           />
           <span />
         </div>

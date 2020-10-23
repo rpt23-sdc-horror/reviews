@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "test": "mocha --r esm --r ignore-styles './test/backend_spec' --exit || true",
+    "test": "mocha --r esm --r ignore-styles './test/backend_spec/*.spec.js' --exit || true",
     "test-client": "mocha --r mock-css-modules --r @babel/register --r ./test/client_spec/helpers.js --r ./test/client_spec/dom.js './test/client_spec/*.spec.js' --exit || true",
     "seed": "node seeder/index.js",
     "set-up": "mysql -u root < schema.sql"

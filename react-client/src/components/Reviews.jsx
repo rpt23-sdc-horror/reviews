@@ -34,7 +34,7 @@ const Reviews = (props) => (
     <div className={styles.writeReview}>Write a Review</div>
     <br />
     <div className={styles.userWrapper}>
-      { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} />)}
+      { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} className="user-review"/>)}
     </div>
     <br />
     <div className={styles.moreReviews} type="button" onClick={props.showModal}>More Reviews</div>
