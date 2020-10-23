@@ -23,7 +23,7 @@ const muiTheme = createMuiTheme({
         height: 4.5,
       }
     }
-}
+  }
 });
 
 const ModalComponent = (props) => (
