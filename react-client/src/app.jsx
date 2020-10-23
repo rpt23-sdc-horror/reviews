@@ -1,21 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-else-return */
-/* eslint-disable react/button-has-type */
-/* eslint-disable no-plusplus */
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable import/extensions */
-
+import { useEffect, useState, useRef } from "react";
 import React from 'react';
 import Modal from 'react-modal';
 import $ from 'jquery';
 import Reviews from './components/Reviews.jsx';
+import ModalComponent from './components/Modal.jsx';
 import './style.css';
 import styles from './styles/Index.module.css';
 
@@ -25,6 +13,7 @@ class ReviewsModule extends React.Component {
 
     this.state = {
       id: 5,
+      productName: [],
       reviews: [],
       averageRating: [],
       averageSize: [],
@@ -49,7 +38,9 @@ class ReviewsModule extends React.Component {
       url: `http://localhost:3003/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
+        console.log(data);
         this.setState({
+          productName: data[0].product_name,
           reviews: data,
           averageRating: data[0].stars_average,
           averageSize: data[0].size_average,
@@ -59,6 +50,7 @@ class ReviewsModule extends React.Component {
       },
       error: (err) => {
         this.setState({
+          productName: null,
           reviews: null,
           averageRating: 0,
           averageSize: 0,
@@ -66,7 +58,7 @@ class ReviewsModule extends React.Component {
           averageDurability: 0,
         });
 
-        throw ('err', err);
+        throw (err);
       },
     });
   }
@@ -111,8 +103,8 @@ class ReviewsModule extends React.Component {
           overlayClassName="myoverlay"
           closeTimeoutMS={500}
         >
-          <div>My modal dialog.</div>
           <div onClick={this.showModal} className="close-modal" id="close-modal">X</div>
+          <ModalComponent reviews={this.state.reviews} averageSize={this.state.averageSize} productName={this.state.productName} show={this.state.show} calcPercent={this.calculatePercentage} averageRating={this.state.averageRating}/>
         </Modal>
         <button
           className={styles.collapsible}

@@ -1,12 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable import/extensions */
-
 import React from 'react';
 import UserReview from './UserReview.jsx';
 import styles from '../styles/Reviews.module.css';

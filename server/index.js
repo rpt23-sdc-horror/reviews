@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const express = require('express');
 const cors = require('cors');
 
@@ -13,7 +12,6 @@ app.use(express.static(`${__dirname}/../react-client/dist`));
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;
-  console.log(req.params);
   findReview(query, (err, result) => {
     if (err) {
       res.status(500);

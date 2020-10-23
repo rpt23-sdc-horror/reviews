@@ -1,0 +1,60 @@
+.modal {
+  margin-top: 1.5%;
+  position: sticky;
+  display: flex;
+  padding-bottom: 10%
+}
+
+.thumbnail {
+  margin-left: 1.5%;
+  position: relative;
+  display: flex;
+}
+
+.modalRating {
+  text-align: center;
+  font-size: 22px;
+}
+
+.rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: lightgray;
+  width: auto;
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+
+.ratingUpper {
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ratingLower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}
+
+.reviewsCount {
+  text-align: center;
+  font-family: Helvetica;
+}
+
+.sizeRoot {
+  float: left;
+  padding-top: 3%;
+  padding-left: 8%;
+  width: 19%;
+  color: black;
+  font-family: Helvetica;
+  user-select: none;
+  pointer-events: none;
+}
