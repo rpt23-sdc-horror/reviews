@@ -51,10 +51,92 @@
 .sizeRoot {
   float: left;
   padding-top: 3%;
-  padding-left: 8%;
-  width: 19%;
-  color: black;
+  padding-left: 11%;
+  width: 20.5%;
+  font-family: Helvetica;
+  font-size: 9;
+  user-select: none;
+  pointer-events: none;
+}
+
+.sizeSmall {
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.sizeBig {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.comfortRoot {
+  float: left;
+  padding-top: 3%;
+  padding-left: 8.6%;
+  width: 20.5%;
   font-family: Helvetica;
   user-select: none;
   pointer-events: none;
+}
+
+.uncomfortable {
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.comfortable {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.durabilityRoot {
+  float: right;
+  padding-top: 3%;
+  padding-right: 11%;
+  width: 20.5%;
+  font-family: Helvetica;
+  font-size: 9;
+  user-select: none;
+  pointer-events: none;
+}
+
+.durable{
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.notDurable {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.sort {
+  margin-left: 7.7%;
+  margin-top: 13%;
+  padding: 1.7%;
+  width: 82%;
+  border-top: 0.7px solid lightgray;
+  border-bottom: 0.7px solid lightgray;
+  border-left: none;
+  border-right: none;
+  border-width: 0.5px;
+  border-color: darkgray;
+}
+
+.sortBy {
+  border: none;
+  font-size: 14.5px;
+  font-weight: bold;
 }

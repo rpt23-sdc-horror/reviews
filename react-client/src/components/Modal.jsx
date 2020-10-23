@@ -19,7 +19,7 @@ const muiTheme = createMuiTheme({
       },
       rail: {
         color: 'lightgray',
-        marginTop: 1.5,
+        marginTop: 1.6,
         height: 4.5,
       }
     }
@@ -59,13 +59,56 @@ const ModalComponent = (props) => (
       </Typography>
       <ThemeProvider theme={muiTheme}>
         <Slider
-          defaultValue={3}
+          defaultValue={props.averageSize}
           step={1}
           min={1}
           max={5}
           valueLabelDisplay="auto"
         />
       </ThemeProvider>
+      <div className={styles.sizeSmall}>Runs Small</div>
+      <div className={styles.sizeBig}>Runs Big</div>
+    </div>
+    <div className={styles.comfortRoot}>
+      <Typography id="discrete-slider-small-steps" gutterBottom>
+        Comfort
+      </Typography>
+      <ThemeProvider theme={muiTheme}>
+        <Slider
+          defaultValue={props.averageComfort}
+          step={1}
+          min={1}
+          max={5}
+          valueLabelDisplay="auto"
+        />
+      </ThemeProvider>
+      <div className={styles.uncomfortable}>Uncomfortable</div>
+      <div className={styles.comfortable}>Very Comfortable</div>
+    </div>
+    <div className={styles.durabilityRoot}>
+      <Typography id="discrete-slider-small-steps" gutterBottom>
+        Durability
+      </Typography>
+      <ThemeProvider theme={muiTheme}>
+        <Slider
+          defaultValue={props.averageDurability}
+          step={1}
+          min={1}
+          max={5}
+          valueLabelDisplay="auto"
+        />
+      </ThemeProvider>
+      <div className={styles.notDurable}>Not Durable</div>
+      <div className={styles.durable}>Very Durable</div>
+    </div>
+    <br />
+    <div className={styles.sort}>
+      <select className={styles.sortBy}>
+        <option value="helful">Sort By: Most Helpful</option>
+        <option value="newest" selected="selected">Sort By: Newest</option>
+        <option value="high">Sort By: Highest To Lowest</option>
+        <option value="low">Sort By: Lowest To Highest</option>
+      </select>
     </div>
   </div>
 );

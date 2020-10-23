@@ -1,4 +1,3 @@
-import { useEffect, useState, useRef } from "react";
 import React from 'react';
 import Modal from 'react-modal';
 import $ from 'jquery';
@@ -104,7 +103,15 @@ class ReviewsModule extends React.Component {
           closeTimeoutMS={500}
         >
           <div onClick={this.showModal} className="close-modal" id="close-modal">X</div>
-          <ModalComponent reviews={this.state.reviews} averageSize={this.state.averageSize} productName={this.state.productName} show={this.state.show} calcPercent={this.calculatePercentage} averageRating={this.state.averageRating}/>
+          <ModalComponent
+            reviews={this.state.reviews}
+            averageSize={this.state.averageSize}
+            averageComfort={this.state.averageComfort}
+            averageDurability={this.state.averageDurability}
+            productName={this.state.productName}
+            show={this.state.show} calcPercent={this.calculatePercentage}
+            averageRating={this.state.averageRating}
+          />
         </Modal>
         <button
           className={styles.collapsible}
@@ -131,7 +138,13 @@ class ReviewsModule extends React.Component {
           <div className={styles.arrow} />
         </button>
         <div className={styles.content}>
-          <Reviews reviews={this.state.reviews} rating={this.state.averageRating} calcPercent={this.calculatePercentage} showModal={this.showModal} show={this.state.show} />
+          <Reviews
+            reviews={this.state.reviews}
+            rating={this.state.averageRating}
+            calcPercent={this.calculatePercentage}
+            showModal={this.showModal}
+            show={this.state.show}
+          />
           <span />
         </div>
       </div>
