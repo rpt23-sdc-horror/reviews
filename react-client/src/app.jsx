@@ -37,8 +37,7 @@ class ReviewsModule extends React.Component {
       url: `http://localhost:3003/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
-        console.log(data);
-        this.setState({
+          this.setState({
           productName: data[0].product_name,
           reviews: data,
           averageRating: data[0].stars_average,
@@ -98,7 +97,7 @@ class ReviewsModule extends React.Component {
           isOpen={this.state.show}
           onRequestClose={this.showModal}
           contentLabel="My dialog"
-          className={this.state.show ? 'mymodal' : 'display-none'}
+          className={this.state.show ? 'mymodal' : "display-none"}
           overlayClassName="myoverlay"
           closeTimeoutMS={500}
         >
@@ -116,10 +115,11 @@ class ReviewsModule extends React.Component {
         <button
           className={styles.collapsible}
           onClick={this.collapsibleClick}
-        >Reviews ({numberOfReviews})
-          <div className={!this.state.show ? styles.indexRating : 'display-none'}>
-            <div className={!this.state.show ? styles.rating : 'display-none'}>
-              <div className={!this.state.show ? styles.ratingUpper : 'display-none'} style={{ width: `${this.calculatePercentage(this.state.averageRating)}%` }}>
+        >
+          Reviews ({numberOfReviews})
+          <div className={!this.state.show ? styles.indexRating : "display-none"}>
+            <div className={!this.state.show ? styles.rating : "display-none"}>
+              <div className={!this.state.show ? styles.ratingUpper : "display-none"} style={{ width: `${this.calculatePercentage(this.state.averageRating)}%` }}>
                 <span>★</span>
                 <span>★</span>
                 <span>★</span>
@@ -144,6 +144,7 @@ class ReviewsModule extends React.Component {
             calcPercent={this.calculatePercentage}
             showModal={this.showModal}
             show={this.state.show}
+            className="reviewsComponent"
           />
           <span />
         </div>

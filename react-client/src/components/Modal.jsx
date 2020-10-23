@@ -9,16 +9,16 @@ const muiTheme = createMuiTheme({
   overrides:{
     MuiSlider: {
       thumb:{
-      color: 'black',
+      color: "black",
       height: 9,
       width: 9,
       marginTop: 0.00001,
       },
       track: {
-        display: 'none',
+        display: "none",
       },
       rail: {
-        color: 'lightgray',
+        color: "lightgray",
         marginTop: 1.6,
         height: 4.5,
       }

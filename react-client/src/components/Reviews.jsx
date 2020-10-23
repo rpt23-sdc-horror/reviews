@@ -6,8 +6,8 @@ const Reviews = (props) => (
   <div className={styles.parentDiv}>
     <div>
       <div className={styles.reviewsParent}>
-        <div className={!props.show ? styles.rating : 'display-none'} id={styles.reviewRating}>
-          <div className={!props.show ? styles.ratingUpper : 'display-none'} style={{ width: `${props.calcPercent(props.rating)}%` }}>
+        <div className={!props.show ? styles.rating : "display-none"} id={styles.reviewRating}>
+          <div className={!props.show ? styles.ratingUpper : "display-none"} style={{ width: `${props.calcPercent(props.rating)}%` }}>
             <span>★</span>
             <span>★</span>
             <span>★</span>
@@ -23,7 +23,7 @@ const Reviews = (props) => (
           </div>
         </div>
         <div
-          className={!props.show ? null : 'display-none'}
+          className={!props.show ? null : "display-none"}
           id={styles.reviewInnerRating}
         >
           {props.rating} Stars
