@@ -1,7 +1,7 @@
 const config = {
   host: 'localhost',
-  user: 'root',
-  password: '',
+  user: 'martinsung',
+  password: 'helloworld123',
   database: 'service_one',
 };
 
