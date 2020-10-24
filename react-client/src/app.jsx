@@ -33,16 +33,16 @@ class ReviewsModule extends React.Component {
     let productID = url[2];
 
     if (!productID) {
-      productID = 1;
-    };
+      productID = 5;
+    }
 
     Modal.setAppElement('body');
 
     $.ajax({
-      url: `http://172.31.40.253:${port}/api/reviews/${productID}`,
+      url: `http://3.134.81.175:${port}/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
-          this.setState({
+        this.setState({
           productName: data[0].product_name,
           reviews: data,
           averageRating: data[0].stars_average,
