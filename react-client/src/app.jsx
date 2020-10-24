@@ -108,7 +108,8 @@ class ReviewsModule extends React.Component {
             averageComfort={this.state.averageComfort}
             averageDurability={this.state.averageDurability}
             productName={this.state.productName}
-            show={this.state.show} calcPercent={this.calculatePercentage}
+            show={this.state.show}
+            calcPercent={this.calculatePercentage}
             averageRating={this.state.averageRating}
           />
         </Modal>

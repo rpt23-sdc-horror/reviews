@@ -4,7 +4,7 @@ import ReviewsModule from '../../react-client/src/app.jsx';
 import styles from '../../react-client/src/styles/Index.module.css';
 import { beforeEach } from 'mocha';
 
-describe('App', function () {
+describe('App react component', function () {
   const root = global.document.createElement('div');
   const body = global.document.querySelector('body');
   let wrapper;

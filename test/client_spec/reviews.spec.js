@@ -4,10 +4,10 @@ import Reviews from '../../react-client/src/components/Reviews.jsx';
 import styles from '../../react-client/src/styles/Reviews.module.css';
 import { beforeEach } from 'mocha';
 
-describe('Reviews', function () {
+describe('Reviews react component', function () {
+  let wrapper;
   const root = global.document.createElement('div');
   const body = global.document.querySelector('body');
-  let wrapper;
   const state = {
     counter: 0,
   }
@@ -34,7 +34,7 @@ describe('Reviews', function () {
     wrapper.unmount();
   });
 
-  it('Should render write review button', function () {
+  it('Should render write-review button', function () {
     expect(wrapper.find(`.${styles.writeReview}`)).to.have.lengthOf(1);
   });
 
@@ -44,7 +44,7 @@ describe('Reviews', function () {
     expect(wrapper.find(`.${styles.moreReviews}`)).to.have.lengthOf(1);
   });
 
-  it('Should render User Reviews component', function () {
+  it('Should render user-reviews component', function () {
     expect(wrapper.find('.user-review')).to.have.lengthOf(1);
   });
 });
