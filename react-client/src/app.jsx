@@ -6,6 +6,8 @@ import ModalComponent from './components/Modal.jsx';
 import './style.css';
 import styles from './styles/Index.module.css';
 
+const port = process.env.PORT || 3003;
+
 class ReviewsModule extends React.Component {
   constructor() {
     super();
@@ -37,7 +39,7 @@ class ReviewsModule extends React.Component {
     Modal.setAppElement('body');
 
     $.ajax({
-      url: `http://localhost:3003/api/reviews/${productID}`,
+      url: `http://${port}/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
           this.setState({
@@ -155,6 +157,6 @@ class ReviewsModule extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default ReviewsModule;
