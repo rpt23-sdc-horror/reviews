@@ -16,7 +16,7 @@ describe('Reviews react component', function () {
     productName: 'Tester',
     show: true,
     calcPercent: function () {
-      return;
+      return 2;
     },
     averageRating: 3,
 };
@@ -28,6 +28,10 @@ describe('Reviews react component', function () {
     wrapper = mount(<ModalComponent {...props}/>);
   });
 
+  afterEach(function () {
+    wrapper.unmount();
+  });
+
   it('Should render the thumbnail div', function () {
     expect(wrapper.find(`.${styles.thumbnail}`)).to.have.lengthOf(1);
   });
@@ -36,7 +40,7 @@ describe('Reviews react component', function () {
     expect(wrapper.find(`.${styles.modalRating}`)).to.have.lengthOf(1);
   });
 
-  xit('Should render size-rating', function () {
+  it('Should render size-rating', function () {
     expect(wrapper.find(`${styles.sizeRoot}`)).to.have.lengthOf(1);
     expect(wrapper.find(`${styles.sizeBig}`)).to.have.lengthOf(1);
     expect(wrapper.find(`${styles.sizeSmall}`)).to.have.lengthOf(1);

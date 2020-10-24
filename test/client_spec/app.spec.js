@@ -9,7 +9,7 @@ describe('App react component', function () {
   const body = global.document.querySelector('body');
   let wrapper;
 
-  root.setAttribute('id', 'modal-root');
+  root.setAttribute('id', 'app-root');
   body.appendChild(root);
 
   beforeEach(function () {

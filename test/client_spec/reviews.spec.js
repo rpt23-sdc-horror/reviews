@@ -23,7 +23,7 @@ describe('Reviews react component', function () {
   show: false,
 };
 
-  root.setAttribute('id', 'modal-root');
+  root.setAttribute('id', 'reviews-root');
   body.appendChild(root);
 
   beforeEach(function () {
