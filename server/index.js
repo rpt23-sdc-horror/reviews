@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { findReview } = require('../database-mysql/index');
+const port = process.env.PORT || 3003;
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.get('/api/reviews/:productID', (req, res) => {
   });
 });
 
-app.listen(3003, () => {
-  console.log('listening on port 3003!');
+app.listen(port, function() {
+  console.log(`listening on ${port}`);
 });
