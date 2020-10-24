@@ -53,7 +53,7 @@ const ModalComponent = (props) => (
       </div>
     </div>
     <h2 className={styles.reviewsCount}>{props.reviews.length} REVIEWS</h2>
-    <div className={styles.sizeRoot}>
+    <div className={styles.sizeRoot} id="size">
       <Typography id="discrete-slider-small-steps" gutterBottom>
         Size
       </Typography>
@@ -66,10 +66,10 @@ const ModalComponent = (props) => (
           valueLabelDisplay="auto"
         />
       </ThemeProvider>
-      <div className={styles.sizeSmall}>Runs Small</div>
-      <div className={styles.sizeBig}>Runs Big</div>
+      <div className={styles.sizeSmall} id="run-small">Runs Small</div>
+      <div className={styles.sizeBig} id="run-big">Runs Big</div>
     </div>
-    <div className={styles.comfortRoot}>
+    <div className={styles.comfortRoot} id="comfort">
       <Typography id="discrete-slider-small-steps" gutterBottom>
         Comfort
       </Typography>
@@ -82,10 +82,10 @@ const ModalComponent = (props) => (
           valueLabelDisplay="auto"
         />
       </ThemeProvider>
-      <div className={styles.uncomfortable}>Uncomfortable</div>
-      <div className={styles.comfortable}>Very Comfortable</div>
+      <div className={styles.uncomfortable} id="uncomfortable">Uncomfortable</div>
+      <div className={styles.comfortable} id="comfortable">Very Comfortable</div>
     </div>
-    <div className={styles.durabilityRoot}>
+    <div className={styles.durabilityRoot} id="durability">
       <Typography id="discrete-slider-small-steps" gutterBottom>
         Durability
       </Typography>
@@ -98,14 +98,14 @@ const ModalComponent = (props) => (
           valueLabelDisplay="auto"
         />
       </ThemeProvider>
-      <div className={styles.notDurable}>Not Durable</div>
-      <div className={styles.durable}>Very Durable</div>
+      <div className={styles.notDurable} id="not-durable">Not Durable</div>
+      <div className={styles.durable} id="durable">Very Durable</div>
     </div>
     <br />
     <div className={styles.sort}>
-      <select className={styles.sortBy}>
+      <select className={styles.sortBy} defaultValue="newest" id="select">
         <option value="helful">Sort By: Most Helpful</option>
-        <option value="newest" selected="selected">Sort By: Newest</option>
+        <option value="newest">Sort By: Newest</option>
         <option value="high">Sort By: Highest To Lowest</option>
         <option value="low">Sort By: Lowest To Highest</option>
       </select>
