@@ -13,7 +13,6 @@ class ReviewsModule extends React.Component {
     super();
 
     this.state = {
-      id: 5,
       productName: [],
       reviews: [],
       averageRating: [],
