@@ -24,7 +24,7 @@ app.get('/api/reviews/:productID', (req, res) => {
 });
 
 app.get('/shop/:productId/:styleId', (req, res) => {
-  res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));
+  res.sendFile(`${__dirname}/../react-client/dist/bundle.js`);
 });
 
 app.listen(port, function() {
