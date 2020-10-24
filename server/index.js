@@ -22,6 +22,10 @@ app.get('/api/reviews/:productID', (req, res) => {
   });
 });
 
+app.get('/shop/:productId/:styleId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));
+});
+
 app.listen(port, function() {
   console.log(`listening on ${port}`);
 });
