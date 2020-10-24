@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { findReview } = require('../database-mysql/index');
 const port = process.env.PORT || 3003;
+const path = require('path');
 
 const app = express();
 
