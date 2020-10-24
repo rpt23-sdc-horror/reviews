@@ -21,5 +21,10 @@ module.exports = {
   ],
   rules: {
     'func-names': ['error', 'never'],
+    'no-console': ['error', 'never'],
+    'react/button-has-type': ['error', 'never'],
+    'import/extensions': ['error', 'never'],
+    'object-curly-newline': ['error', 'never'],
+    'max-len': ['error', 'never']
   },
 };

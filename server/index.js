@@ -1,29 +1,27 @@
-/* eslint-disable no-console */
 const express = require('express');
 const cors = require('cors');
-
 const { findReview } = require('../database-mysql/index');
+const port = process.env.PORT || 3003;
 
 const app = express();
 
-app.use(express.static(`${__dirname}/../react-client/dist`));
 app.use(cors({
   origin: '*',
 }));
+app.use(express.static(`${__dirname}/../react-client/dist`));
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;
-  console.log(query);
-
   findReview(query, (err, result) => {
     if (err) {
+      res.status(500);
       throw (err);
     } else {
-      res.send(result);
+      res.status(200).send(result);
     }
   });
 });
 
-app.listen(3003, () => {
-  console.log('listening on port 3003!');
+app.listen(port, function() {
+  console.log(`listening on ${port}`);
 });

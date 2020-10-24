@@ -7,7 +7,7 @@ const randomName = function (names) {
 };
 
 const randomComment = function () {
-  return lorem.generateSentences(3);
+  return lorem.generateSentences(2);
 };
 
 const randomBool = function () {
@@ -21,7 +21,7 @@ const randomDate = function (dates) {
 };
 
 const randomRating = function () {
-  return Math.floor(Math.random() * 6);
+  return Math.random() * 5;
 };
 
 module.exports = {

@@ -1,29 +1,20 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable import/extensions */
-
 import React from 'react';
 import UserReview from './UserReview.jsx';
-import '../style.css';
+import styles from '../styles/Reviews.module.css';
 
 const Reviews = (props) => (
-  <div>
+  <div className={styles.parentDiv}>
     <div>
-      <div style={{ float: 'left' }}>
-        <div className={!props.show ? 'rating' : 'display-none'} id="review-rating">
-          <div className={!props.show ? 'rating-upper' : 'display-none'} style={{ width: `${props.calcPercent(props.rating)}%` }}>
+      <div className={styles.reviewsParent}>
+        <div className={!props.show ? styles.rating : "display-none"} id={styles.reviewRating}>
+          <div className={!props.show ? styles.ratingUpper : "display-none"} style={{ width: `${props.calcPercent(props.rating)}%` }}>
             <span>★</span>
             <span>★</span>
             <span>★</span>
             <span>★</span>
             <span>★</span>
           </div>
-          <div className="rating-lower">
+          <div className={styles.ratingLower}>
             <span>★</span>
             <span>★</span>
             <span>★</span>
@@ -32,21 +23,21 @@ const Reviews = (props) => (
           </div>
         </div>
         <div
-          className={!props.show ? 'inner-rating' : 'display-none'}
-          id="review-inner-rating"
+          className={!props.show ? null : "display-none"}
+          id={styles.reviewInnerRating}
         >
           {props.rating} Stars
         </div>
       </div>
     </div>
     <br />
-    <div className="writeReview">Write a Review</div>
+    <div className={styles.writeReview}>Write a Review</div>
     <br />
-    <div>
-      { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} />)}
+    <div className={styles.userWrapper}>
+      { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} className="user-review"/>)}
     </div>
     <br />
-    <div className="moreReviews" type="button" onClick={props.showModal}>More Reviews</div>
+    <div className={styles.moreReviews} type="button" onClick={props.showModal}>More Reviews</div>
   </div>
 );
 
