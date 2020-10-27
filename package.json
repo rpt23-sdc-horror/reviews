@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "build": "webpack -d",
+    "build": "webpack --mode production",
     "server-dev": "nodemon server/index.js",
     "server": "node server/index.js",
     "test": "mocha --r esm --r ignore-styles './test/backend_spec/*.spec.js' --exit || true",

@@ -101,7 +101,7 @@ class ReviewsModule extends React.Component {
           isOpen={this.state.show}
           onRequestClose={this.showModal}
           contentLabel="My dialog"
-          className={this.state.show ? 'mymodal' : "display-none"}
+          className={this.state.show ? "mymodal" : "display-none"}
           overlayClassName="myoverlay"
           closeTimeoutMS={500}
         >
