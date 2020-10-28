@@ -5,6 +5,7 @@ import Reviews from './components/Reviews.jsx';
 import ModalComponent from './components/Modal.jsx';
 import './style.css';
 import styles from './styles/Index.module.css';
+import testData from './testdata.js';
 
 const port = process.env.PORT || 3003;
 
@@ -31,10 +32,6 @@ class ReviewsModule extends React.Component {
     const url = window.location.pathname.split('/');
     let productID = url[2];
 
-    if (!productID) {
-      productID = 5;
-    }
-
     Modal.setAppElement('body');
 
     $.ajax({
@@ -52,16 +49,16 @@ class ReviewsModule extends React.Component {
       },
       error: (err) => {
         this.setState({
-          productName: null,
-          reviews: null,
-          averageRating: 0,
-          averageSize: 0,
-          averageComfort: 0,
-          averageDurability: 0,
+          productName: "Nike 1",
+          reviews: testData,
+          averageRating: 3,
+          averageSize: 3,
+          averageComfort: 3,
+          averageDurability: 3
         });
 
         throw (err);
-      },
+      }
     });
   }
 
