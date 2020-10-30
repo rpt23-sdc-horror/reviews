@@ -7,8 +7,13 @@ const path = require('path');
 const app = express();
 
 app.use(cors({
+  allowedHeaders: ['sessionId', 'Content-Type'],
+  exposedHeaders: ['sessionId'],
   origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false
 }));
+
 app.use(express.static(`${__dirname}/../react-client/dist`));
 
 app.get('/api/reviews/:productID', (req, res) => {
