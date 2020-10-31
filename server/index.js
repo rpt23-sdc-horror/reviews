@@ -7,11 +7,7 @@ const path = require('path');
 const app = express();
 
 app.use(cors({
-  allowedHeaders: '*',
-  exposedHeaders: '*',
   origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false
 }));
 
 app.use(express.static(`${__dirname}/../react-client/dist`));
