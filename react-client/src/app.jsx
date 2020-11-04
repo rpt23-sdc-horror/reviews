@@ -5,7 +5,7 @@ import Reviews from './components/Reviews.jsx';
 import ModalComponent from './components/Modal.jsx';
 import './style.css';
 import styles from './styles/Index.module.css';
-import testData from './testdata.js';
+import mockData from './mock_data.js';
 
 const port = process.env.PORT || 3003;
 
@@ -50,7 +50,7 @@ class ReviewsModule extends React.Component {
       error: (err) => {
         this.setState({
           productName: "Nike 1",
-          reviews: testData,
+          reviews: mockData,
           averageRating: 3,
           averageSize: 3,
           averageComfort: 3,

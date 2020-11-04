@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../react-client/src/styles/Modal.module.css';
 import { expect } from 'chai';
 import ModalComponent from '../../react-client/src/components/Modal.jsx';
-import { beforeEach, afterEach } from 'mocha';
+import { before, after } from 'mocha';
 import mockCssModules from 'mock-css-modules';
 
 mockCssModules.register(['.css']);
@@ -27,11 +27,11 @@ describe('Modal react component', function () {
   root.setAttribute('id', 'modal-root');
   body.appendChild(root);
 
-  beforeEach(function () {
+  before(function () {
     wrapper = mount(<ModalComponent {...props}/>);
   });
 
-  afterEach(function () {
+  after(function () {
     wrapper.unmount();
   });
 

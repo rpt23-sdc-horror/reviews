@@ -1,4 +1,4 @@
-const testData = [
+const mockData = [
   {
     product_id: 1,
     username: 'Bot 1',
@@ -74,4 +74,4 @@ const testData = [
   }
 ];
 
-export default testData;
+export default mockData;

@@ -83,14 +83,14 @@
   pointer-events: none;
 }
 
-.uncomfortable {
+.comfortable {
   float: left;
   font-family: Helvetica;
   color: darkgray;
   font-size: 12px;
 }
 
-.comfortable {
+.uncomfortable {
   float: right;
   font-family: Helvetica;
   color: darkgray;
