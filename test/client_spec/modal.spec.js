@@ -2,10 +2,6 @@ import React from 'react';
 import styles from '../../react-client/src/styles/Modal.module.css';
 import { expect } from 'chai';
 import ModalComponent from '../../react-client/src/components/Modal.jsx';
-import { before, after } from 'mocha';
-import mockCssModules from 'mock-css-modules';
-
-mockCssModules.register(['.css']);
 
 describe('Modal react component', function () {
   let wrapper;

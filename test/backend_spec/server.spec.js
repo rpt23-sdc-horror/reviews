@@ -1,9 +1,5 @@
-/* eslint-disable func-names */
-/* eslint-disable prefer-arrow-callback */
-/* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../../server/index')
-
 
 describe('Server', function () {
   describe('GET all request', function () {

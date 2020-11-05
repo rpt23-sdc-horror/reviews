@@ -2,7 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import ReviewsModule from '../../react-client/src/app.jsx';
 import styles from '../../react-client/src/styles/Index.module.css';
-import { before, after  } from 'mocha';
 
 describe('App react component', function () {
   const root = global.document.createElement('div');

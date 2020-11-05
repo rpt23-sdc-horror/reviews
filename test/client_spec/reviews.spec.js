@@ -2,7 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import Reviews from '../../react-client/src/components/Reviews.jsx';
 import styles from '../../react-client/src/styles/Reviews.module.css';
-import { before, after } from 'mocha';
 
 describe('Reviews react component', function () {
   let wrapper;
