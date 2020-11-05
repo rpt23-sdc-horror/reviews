@@ -1,11 +1,11 @@
-const assert = require('chai');
+const { assert } = require('chai');
 const helper = require('../../seeder/seederHelper');
 const db = require('../../database-mysql');
 const seeder = require('../../seeder/seeder');
 
 describe('Helper Functions', function () {
   describe('Boolean Generator', function () {
-    it('should generate a boolean randoly', function () {
+    it('should generate a boolean randomly', function () {
 
       assert.equal(typeof helper.randomBool(), 'boolean');
     });
@@ -15,7 +15,7 @@ describe('Helper Functions', function () {
     const array = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
 
     it('should generate a name from the list of names', function () {
-      const index = array.indexOf(helper.randomName());
+      const index = array.indexOf(helper.randomName(array));
       const truthiness = index > -1;
 
       assert.equal(truthiness, true);
@@ -26,7 +26,7 @@ describe('Helper Functions', function () {
     const dates = ['08-20-2020', '01-10-2020', '02-12-2020', '03-22-2020', '09-24-2020', '07-02-2020', '10-29-2020', '03-10-2020', '04-05-2020'];
 
     it('should generate a date from the list of dates', function () {
-      const index = dates.indexOf(helper.randomDate());
+      const index = dates.indexOf(helper.randomDate(dates));
       const truthiness = index > -1;
 
       assert.equal(truthiness, true);

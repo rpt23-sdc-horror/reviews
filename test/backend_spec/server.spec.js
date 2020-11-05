@@ -1,28 +1,31 @@
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-undef */
-const { assert } = require('chai');
-const axios = require('axios').default;
+const request = require('supertest');
+const app = require('../../server/index')
+
 
 describe('Server', function () {
   describe('GET all request', function () {
-    it('Should send in a GET request receive a 200 status code', function () {
-      axios.get('http://localhost:3003/testingRoute/databaseTestRoute')
-        .then((response) => {
-          assert.equal(200, response.status);
-        })
-        .catch((error) => {
-          throw (error);
+    it('should receive a 200 OK status', function (done) {
+      const productID = 1;
+
+      request(app)
+        .get(`/api/reviews/${productID}`)
+        .expect(200)
+        .end(function (err) {
+          if (err) return done(err);
+          done();
         });
     });
 
-    it('Should receive a response with empty data', function () {
-      axios.get('http://localhost:3003/testingRoute/databaseTestRoute')
-        .then((response) => {
-          assert.equal(typeof response.data, 'object');
-        })
-        .catch((error) => {
-          throw (error);
+    it('should receive a 404 Not Found status when using a bad route', function (done) {
+      request(app)
+        .get('/bad/api/route')
+        .expect(404)
+        .end(function (err) {
+          if (err) return done(err);
+          done();
         });
     });
   });
