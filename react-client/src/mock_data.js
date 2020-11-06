@@ -63,7 +63,7 @@ const mockData = [
     upvote: 5,
     downvote: 0,
     created_at: 'Aug 27, 2020',
-    size_rating: 3,
+    size_rating: 1,
     durability_rating: 3,
     comfort_rating: 3,
     stars: 3,
