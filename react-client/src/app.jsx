@@ -26,6 +26,7 @@ class ReviewsModule extends React.Component {
     this.calculatePercentage = this.calculatePercentage.bind(this);
     this.showModal = this.showModal.bind(this);
     this.collapsibleClick = this.collapsibleClick.bind(this);
+    this.sortByNewest = this.sortByNewest.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +61,33 @@ class ReviewsModule extends React.Component {
         throw (err);
       }
     });
+  }
+
+  sortByNewest(reviews) {
+    let sorted = false;
+
+    while (sorted === false) {
+      sorted = true;
+
+      for (let i = 0; i < reviews.length; i++) {
+        let currentReview = reviews[i];
+        let nextReview = reviews[i + 1];
+        let createdCurrent = reviews[i].created_at;
+        let createdNext = reviews[i + 1].created_at;
+        let current = createdCurrent.split('-');
+        let next = createdNext.split('-')
+        let firstNum = parseInt(current[0]) + parseInt(current[1]) + parseInt(current[2]);
+        let secondNum = parseInt(next[0]) + parseInt(next[1]) + parseInt(next[2]);
+
+        if (secondNum > firstNum) {
+          reviews[i] = nextReview;
+          reviews[i + 1] = currentReview;
+          sorted = false;
+        }
+      }
+    }
+
+    return reviews;
   }
 
   showModal() {

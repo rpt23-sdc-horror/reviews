@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalReviews from './ModalReviews.jsx';
 import styles from '../styles/Modal.module.css';
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
@@ -27,7 +28,7 @@ const muiTheme = createMuiTheme({
 });
 
 const ModalComponent = (props) => (
-  <div>
+  <div id={styles.parent}>
     <div className={styles.modal}>
       <div className={styles.thumbnail}>
         <div>{props.productName}</div>
@@ -110,6 +111,10 @@ const ModalComponent = (props) => (
         <option value="low">Sort By: Lowest To Highest</option>
       </select>
     </div>
+    <div className={styles.userReviews}>
+      { props.reviews.map((review, key) => <ModalReviews review={review} calcPercent={props.calcPercent} key={key} id={styles.individual}/>) }
+    </div>
+    <br />
   </div>
 );
 
