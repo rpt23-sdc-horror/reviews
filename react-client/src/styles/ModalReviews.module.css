@@ -250,3 +250,26 @@
   margin-top: 1.5%;
   padding-bottom: 8%;
 }
+
+.pole {
+  float: left;
+  height: 14.5px;
+  top: 0;
+  margin-left: 25.7%;
+  margin-top: -14.6%;
+  border-left: 0.7px solid rgb(112, 112, 112);
+}
+
+.flag {
+  position: relative;
+  float: right;
+  height: 6px;
+  width: 10px;
+  top: 0;
+  margin-right: 69.5%;
+  margin-top: -14.7%;
+  border-top: 0.7px solid rgb(112, 112, 112);
+  border-right: 0.7px solid rgb(112, 112, 112);
+  border-bottom: 0.7px solid rgb(112, 112, 112);
+  background-color: rgb(34, 34, 34);
+}

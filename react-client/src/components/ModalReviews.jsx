@@ -110,6 +110,8 @@ const ModalReviews = (props) => (
         <div className={styles.widthTwo}>
           <i id={styles.arrow} className={styles.down}></i>
           <div className={styles.downvote}>{props.review.downvote}</div>
+          <div className={styles.pole}></div>
+          <div className={styles.flag}></div>
         </div>
       </div>
     </div>
