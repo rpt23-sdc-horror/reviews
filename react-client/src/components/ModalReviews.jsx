@@ -31,7 +31,7 @@ const ModalReviews = (props) => (
     <div className={styles.colLeft}>
       <div className={styles.indvidualRating}>
           <div className={styles.rating}>
-            <div className={styles.ratingUpper} style={{ width: `${props.calcPercent(props.review.averageRating)}%` }}>
+            <div className={styles.ratingUpper} style={{ width: `${props.calcPercent(props.review.stars)}%` }}>
               <span>★</span>
               <span>★</span>
               <span>★</span>
@@ -81,7 +81,7 @@ const ModalReviews = (props) => (
         </div>
         <div className={styles.durabilityRoot} id="size">
           <Typography id="discrete-slider-small-steps" gutterBottom>
-            <div id={styles.durabilityFont}>Comfort</div>
+            <div id={styles.durabilityFont}>Durability</div>
           </Typography>
           <ThemeProvider theme={muiTheme}>
             <Slider
