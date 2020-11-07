@@ -12,7 +12,7 @@ const muiTheme = createMuiTheme({
       color: "black",
       height: 9,
       width: 9,
-      marginTop: 0.00001,
+      marginTop: 0.00001
       },
       track: {
         display: "none",
@@ -20,7 +20,7 @@ const muiTheme = createMuiTheme({
       rail: {
         color: "lightgray",
         marginTop: 1.6,
-        height: 4.5,
+        height: 4.5
       }
     }
   }
