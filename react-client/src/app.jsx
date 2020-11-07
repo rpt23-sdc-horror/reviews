@@ -7,8 +7,6 @@ import './style.css';
 import styles from './styles/Index.module.css';
 import mockData from './mock_data.js';
 
-const port = process.env.PORT || 3003;
-
 class ReviewsModule extends React.Component {
   constructor() {
     super();

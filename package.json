@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "build": "webpack --mode production",
+    "build": "webpack --mode=production",
     "server-dev": "nodemon server/index.js",
     "server": "node server/index.js",
     "test": "mocha --r esm --r ignore-styles './test/backend_spec/*.spec.js' --exit || true",
@@ -48,6 +48,7 @@
     "angular": "^1.6.3",
     "axios": "^0.20.0",
     "babel-plugin-react-css-modules": "^5.2.6",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "enzyme": "^3.11.0",
     "esm": "^3.2.25",
