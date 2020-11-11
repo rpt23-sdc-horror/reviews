@@ -1,8 +1,8 @@
 const request = require('supertest');
 const app = require('../../server/index')
 
-describe('Server', function () {
-  describe('GET all request', function () {
+describe('Server Routes', function () {
+  describe('GET Endpoint', function () {
     it('should receive a 200 OK status', function (done) {
       const productID = 1;
 
@@ -15,10 +15,12 @@ describe('Server', function () {
         });
     });
 
-    it('should receive a 404 Not Found status when using a bad route', function (done) {
+    it('should send a JSON object back', function (done) {
+      const productID = 1;
+
       request(app)
-        .get('/bad/api/route')
-        .expect(404)
+        .get(`/api/reviews/${productID}`)
+        .expect('Content-type', /json/)
         .end(function (err) {
           if (err) return done(err);
           done();

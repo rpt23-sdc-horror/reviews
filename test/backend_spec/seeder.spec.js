@@ -1,8 +1,3 @@
-/* eslint-disable mocha/max-top-level-suites */
-/* eslint-disable prefer-arrow-callback */
-/* eslint-disable func-names */
-/* eslint-disable no-plusplus */
-/* eslint-disable no-undef */
 const { assert } = require('chai');
 const helper = require('../../seeder/seederHelper');
 const db = require('../../database-mysql');
@@ -10,10 +5,9 @@ const seeder = require('../../seeder/seeder');
 
 describe('Helper Functions', function () {
   describe('Boolean Generator', function () {
-    it('should generate a boolean randoly', function () {
-      const randomBool = helper.randomBool();
+    it('should generate a boolean randomly', function () {
 
-      assert.equal(typeof randomBool, 'boolean');
+      assert.equal(typeof helper.randomBool(), 'boolean');
     });
   });
 
@@ -21,8 +15,7 @@ describe('Helper Functions', function () {
     const array = ['Bob', 'Charlie', 'Jack', 'Jill', 'DrNy', 'Chris', 'Sarah', 'Kim', 'Mary', 'xxAio', 'shaneGiant', 'F.O', 'M.A', 'W.W', 'L.L', 'Arkoo'];
 
     it('should generate a name from the list of names', function () {
-      const randomName = helper.randomName(array);
-      const index = array.indexOf(randomName);
+      const index = array.indexOf(helper.randomName(array));
       const truthiness = index > -1;
 
       assert.equal(truthiness, true);
@@ -33,8 +26,7 @@ describe('Helper Functions', function () {
     const dates = ['08-20-2020', '01-10-2020', '02-12-2020', '03-22-2020', '09-24-2020', '07-02-2020', '10-29-2020', '03-10-2020', '04-05-2020'];
 
     it('should generate a date from the list of dates', function () {
-      const randomDate = helper.randomDate(dates);
-      const index = dates.indexOf(randomDate);
+      const index = dates.indexOf(helper.randomDate(dates));
       const truthiness = index > -1;
 
       assert.equal(truthiness, true);
@@ -43,18 +35,13 @@ describe('Helper Functions', function () {
 
   describe('Random Comment', function () {
     it('should generate a random comment using lorem ipsum', function () {
-      const randomComment = helper.randomComment();
-
-      assert.equal(typeof randomComment, 'string');
+      assert.equal(typeof helper.randomComment(), 'string');
     });
   });
 
-  // eslint-disable-next-line prefer-arrow-callback
   describe('Random Rating', function () {
     it('should generate a random number', function () {
-      const randomRating = helper.randomRating();
-
-      assert.equal('number', typeof randomRating);
+      assert.equal('number', typeof helper.randomRating());
     });
   });
 });
@@ -69,7 +56,7 @@ describe('Seeder', function () {
         return new Promise((resolve, reject) => {
           seeder(names, dates, (err, result) => {
             if (err) {
-              reject(error);
+              reject(err);
             } else {
               resolve(result);
             }
@@ -81,7 +68,7 @@ describe('Seeder', function () {
         .then(() => {
           db.findAll((err, result) => {
             if (err) {
-              throw (err);
+              throw err;
             } else {
               return result;
             }
@@ -99,8 +86,8 @@ describe('Seeder', function () {
             }
           });
         })
-        .catch((error) => {
-          throw (error);
+        .catch((err) => {
+          throw err;
         });
     });
   });

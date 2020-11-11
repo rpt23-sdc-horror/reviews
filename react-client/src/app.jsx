@@ -5,9 +5,7 @@ import Reviews from './components/Reviews.jsx';
 import ModalComponent from './components/Modal.jsx';
 import './style.css';
 import styles from './styles/Index.module.css';
-import testData from './testdata.js';
-
-const port = process.env.PORT || 3003;
+import mockData from './mock_data.js';
 
 class ReviewsModule extends React.Component {
   constructor() {
@@ -26,16 +24,17 @@ class ReviewsModule extends React.Component {
     this.calculatePercentage = this.calculatePercentage.bind(this);
     this.showModal = this.showModal.bind(this);
     this.collapsibleClick = this.collapsibleClick.bind(this);
+    this.sortByNewest = this.sortByNewest.bind(this);
   }
 
   componentDidMount() {
     const url = window.location.pathname.split('/');
-    let productID = url[2];
+    const productID = url[2];
 
     Modal.setAppElement('body');
 
     $.ajax({
-      url: `http://3.134.81.175:${port}/api/reviews/${productID}`,
+      url: `/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
         this.setState({
@@ -50,7 +49,7 @@ class ReviewsModule extends React.Component {
       error: (err) => {
         this.setState({
           productName: "Nike 1",
-          reviews: testData,
+          reviews: mockData,
           averageRating: 3,
           averageSize: 3,
           averageComfort: 3,
@@ -60,6 +59,33 @@ class ReviewsModule extends React.Component {
         throw (err);
       }
     });
+  }
+
+  sortByNewest(reviews) {
+    let sorted = false;
+
+    while (sorted === false) {
+      sorted = true;
+
+      for (let i = 0; i < reviews.length; i++) {
+        let currentReview = reviews[i];
+        let nextReview = reviews[i + 1];
+        let createdCurrent = reviews[i].created_at;
+        let createdNext = reviews[i + 1].created_at;
+        let current = createdCurrent.split('-');
+        let next = createdNext.split('-')
+        let firstNum = parseInt(current[0]) + parseInt(current[1]) + parseInt(current[2]);
+        let secondNum = parseInt(next[0]) + parseInt(next[1]) + parseInt(next[2]);
+
+        if (secondNum > firstNum) {
+          reviews[i] = nextReview;
+          reviews[i + 1] = currentReview;
+          sorted = false;
+        }
+      }
+    }
+
+    return reviews;
   }
 
   showModal() {

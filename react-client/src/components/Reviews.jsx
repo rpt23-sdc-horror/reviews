@@ -37,6 +37,7 @@ const Reviews = (props) => (
       { props.reviews.map((review, key) => <UserReview review={review} calcPercent={props.calcPercent} key={key} show={props.show} className="user-review"/>)}
     </div>
     <br />
+    <div className={styles.space} />
     <div className={styles.moreReviews} type="button" onClick={props.showModal}>More Reviews</div>
   </div>
 );

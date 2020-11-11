@@ -1,0 +1,275 @@
+.userReview {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  padding-top: 4%;
+  padding-bottom: 10%;
+  padding-left: 1%;
+}
+
+.colLeft {
+  padding-top: 1%;
+  padding-bottom: 7%;
+  padding-left: 1.5%;
+  margin-left: 7.3%;
+  float: left;
+  position: fixed;
+  width: 100%;
+  overflow: scroll;
+}
+
+.colRight {
+  overflow: hidden;
+  padding-bottom: 7%;
+  padding-top: 1%;
+  margin-right: 7%;
+  float: right;
+  position: relative;
+  width: 59%;
+}
+
+.individualRating {
+  float: left;
+  position: relative;
+}
+
+.rating {
+  overflow: scroll;
+  font-size: 1.2em;
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: lightgray;
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+
+.ratingUpper {
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.ratingLower {
+  padding: 0;
+  display: flex;
+  z-index: 0;
+}
+
+.sizeRoot {
+  position: relative;
+  width: 20.5%;
+  font-family: Helvetica;
+  user-select: none;
+  pointer-events: none;
+  padding-top: 0.5%;
+  margin-top: -1%;
+  padding-right: 3.5%;
+}
+
+#sizeFont {
+  margin-top: 6%;
+  padding-top: 3%;
+  font-size: 14px;
+  padding-bottom: none;
+}
+
+.sizeSmall {
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.sizeBig {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.comfortRoot {
+  position: relative;
+  width: 20.5%;
+  font-family: Helvetica;
+  user-select: none;
+  pointer-events: none;
+  padding-top: 0.5%;
+}
+
+#comfortFont {
+  margin-top: 6%;
+  padding-top: 3%;
+  font-size: 14px;
+  padding-bottom: none;
+}
+
+.uncomfortable {
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.comfortable {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.durabilityRoot {
+  position: relative;
+  width: 20.5%;
+  font-family: Helvetica;
+  user-select: none;
+  pointer-events: none;
+  padding-top: 0.5%;
+  padding-bottom: 5%;
+}
+
+#durabilityFont {
+  margin-top: 6%;
+  padding-top: 3%;
+  font-size: 14px;
+  padding-bottom: none;
+}
+
+.notDurable {
+  float: left;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.durable {
+  float: right;
+  font-family: Helvetica;
+  color: darkgray;
+  font-size: 12px;
+}
+
+.border {
+  padding-top: 7%;
+  padding: 1.7%;
+  width: 79%;
+  border-bottom: 0.7px solid lightgray;
+  border-left: none;
+  border-right: none;
+  border-width: 0.5px;
+  border-color: darkgray;
+}
+
+.verified {
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 14.5px;
+  padding-bottom: 1.6%;
+}
+
+.comment {
+  font-family: Helvetica;
+  font-size: 14.5px;
+  padding-bottom: 10%;
+}
+
+.user {
+  font-family: Helvetica;
+  font-size: 13.5px;
+  color: darkgray;
+}
+
+.verifiedUser {
+  font-family: Helvetica;
+  font-size: 13.5px;
+  color: darkorange;
+}
+
+.width {
+  cursor: pointer;
+  float: left;
+  width: 30%;
+  padding-left: 0.5%;
+  padding-right: none;
+}
+
+.votes {
+  padding-top: 4%;
+  padding-left: 1%;
+  margin-left: -1%;
+}
+
+#arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.upvote {
+  float: right;
+  padding-left: 1%;
+  font-family: Helvetica;
+  font-size: 13.5px;
+  margin-right: 86.5%;
+  padding-bottom: 8%;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.widthTwo {
+  cursor: pointer;
+  float: right;
+  width: 30%;
+  padding-left: 0.5%;
+  margin-top: -4.85%;
+  margin-right: 61.5%;
+  padding-right: none;
+}
+
+.downvote {
+  float: right;
+  padding-left: 1%;
+  font-family: Helvetica;
+  font-size: 13.5px;
+  margin-right: 86.5%;
+  margin-top: 1.5%;
+  padding-bottom: 8%;
+}
+
+.pole {
+  float: left;
+  height: 14.5px;
+  top: 0;
+  margin-left: 25.7%;
+  margin-top: -14.6%;
+  border-left: 0.7px solid rgb(112, 112, 112);
+}
+
+.flag {
+  position: relative;
+  float: right;
+  height: 6px;
+  width: 10px;
+  top: 0;
+  margin-right: 69.5%;
+  margin-top: -14.7%;
+  border-top: 0.7px solid rgb(112, 112, 112);
+  border-right: 0.7px solid rgb(112, 112, 112);
+  border-bottom: 0.7px solid rgb(112, 112, 112);
+  background-color: rgb(34, 34, 34);
+}

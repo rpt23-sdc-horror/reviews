@@ -1,8 +1,10 @@
 .modal {
+  height: 100%;
   margin-top: 1.5%;
   position: sticky;
   display: flex;
-  padding-bottom: 10%
+  padding-bottom: 10%;
+  overflow: scroll;
 }
 
 .thumbnail {
@@ -108,14 +110,14 @@
   pointer-events: none;
 }
 
-.durable{
+.notDurable{
   float: left;
   font-family: Helvetica;
   color: darkgray;
   font-size: 12px;
 }
 
-.notDurable {
+.durable {
   float: right;
   font-family: Helvetica;
   color: darkgray;
@@ -139,4 +141,16 @@
   border: none;
   font-size: 14.5px;
   font-weight: bold;
+}
+
+.userReviews {
+  position: relative;
+  overflow-y: hidden;
+}
+
+.individual {
+  display: inline-block;
+  position: relative;
+  overflow-y: auto;
+  padding: 2%;
 }

@@ -1,28 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const { findReview } = require('../database-mysql/index');
+const app = require('./routes');
+
 const port = process.env.PORT || 3003;
-const path = require('path');
 
-const app = express();
-
-app.use(cors({
-  origin: '*',
-}));
-app.use(express.static(`${__dirname}/../react-client/dist`));
-
-app.get('/api/reviews/:productID', (req, res) => {
-  const query = req.params.productID;
-  findReview(query, (err, result) => {
-    if (err) {
-      res.status(500);
-      throw (err);
-    } else {
-      res.status(200).send(result);
-    }
-  });
-});
-
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
+
+module.exports = app;

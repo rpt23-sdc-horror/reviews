@@ -2,7 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import Reviews from '../../react-client/src/components/Reviews.jsx';
 import styles from '../../react-client/src/styles/Reviews.module.css';
-import { beforeEach, afterEach } from 'mocha';
 
 describe('Reviews react component', function () {
   let wrapper;
@@ -26,11 +25,11 @@ describe('Reviews react component', function () {
   root.setAttribute('id', 'reviews-root');
   body.appendChild(root);
 
-  beforeEach(function () {
+  before(function () {
     wrapper = mount(<Reviews {...props}/>);
   });
 
-  afterEach(function () {
+  after(function () {
     wrapper.unmount();
   });
 
