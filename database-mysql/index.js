@@ -92,14 +92,14 @@ const create = (review) => {
   })
 };
 
-const read = (id, cb) => {
+const read = (id) => {
   const readOne = 'SELECT * FROM review WHERE product_id = ?';
 
   connection.query(readOne, [id], (err, results) => {
     if (err) {
       console.log(`ERROR when reading ${id}'s review in DB`);
     } else {
-      cb(results);
+      console.log(null, results);
     }
   })
 }
@@ -136,4 +136,8 @@ module.exports = {
   clearDb,
   findReview,
   connection,
+  create,
+  read,
+  update,
+  deleteOne
 };
