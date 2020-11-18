@@ -20,3 +20,9 @@ The reviews service is one of the four services that are being rendered onto a p
 
 ## Licensing
 Standard MIT license
+
+REVIEWS API:
+POST: /shop/admin/create/:productID (creates one review)
+GET: /shop/admin/read/:productID (reads one review specified by product ID)
+POST: /shop/admin/update/:productID (updates one review specified by product ID)
+GET: /shop/admin/delete/:productID (deletes one review specified by product ID)
