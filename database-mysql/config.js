@@ -1,8 +1,8 @@
 const config = {
   host: 'localhost',
-  user: 'martinsung',
-  password: '',
-  database: 'service_one',
+  user: 'root',
+  password: 'password',
+  database: 'service_one'
 };
 
 module.exports = config;
