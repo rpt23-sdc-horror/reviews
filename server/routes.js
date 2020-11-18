@@ -67,7 +67,7 @@ app.post('/shop/admin/update/:productID', async (req, res) => {
   res.end('done');
 });
 
-app.get('/shop/admin/update/:productID', async (req, res) => {
+app.get('/shop/admin/delete/:productID', async (req, res) => {
   const query = req.params.productID;
   const deleteOne = await dbfunc.deleteOne(query);
   res.end('done');
