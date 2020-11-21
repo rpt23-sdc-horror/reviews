@@ -35,9 +35,8 @@ const findReview = function (id, callback) {
 };
 
 const insertProducts = function (data, callback) {
-  // console.log('BEFORE', productsQuery);
   const productsQuery = `INSERT INTO products(product_id, product_name, comfort_average, durability_average, size_average, stars_average) VALUES(${data.product_id}, '${data.product_name}', ${data.comfort_average}, ${data.durability_average}, ${data.size_average}, ${data.stars_average})`;
-  // console.log('AFTER', productsQuery);
+
   connection.query(productsQuery, (err, result) => {
     if (err) {
       callback(err, null);
