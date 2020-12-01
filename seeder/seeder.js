@@ -6,7 +6,7 @@ const helper = require('./seederHelper');
 const { insertProducts, insertReviews } = require('../database-mysql/index');
 
 const seed = function (names, dates) {
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 10000; i++) {
     const dataOne = {
       product_id: i,
       product_name: 'Placeholder',
