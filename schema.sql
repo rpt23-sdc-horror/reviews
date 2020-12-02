@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS service_one;
+DROP DATABASE IF EXISTS service_two;
 
-CREATE DATABASE service_one;
+CREATE DATABASE service_two;
 
-USE service_one;
+USE service_two;
 
 CREATE TABLE review (
   id int NOT NULL AUTO_INCREMENT,
-  product_id varchar(25) NOT NULL,
+  product_id int NOT NULL,
   username varchar(250),
   comment varchar(1000),
   verified boolean,
@@ -33,5 +33,17 @@ CREATE TABLE products (
 );
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
+ *    mysql -u root < schema.sql -p
  *  to create the database and the tables.*/
+/*
+to load csv's
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product.csv' IGNORE
+INTO TABLE products
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review.csv' IGNORE
+INTO TABLE review
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+*/
