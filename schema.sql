@@ -37,14 +37,14 @@ CREATE TABLE products (
  *  to create the database and the tables.*/
 /*
 to load csv's
-LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product.csv'
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv'
 INTO TABLE products
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, product_id, product_name, comfort_average, durability_average, size_average, stars_average)
 
-LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review.csv'
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv'
 INTO TABLE review
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
