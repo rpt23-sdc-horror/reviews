@@ -58,6 +58,7 @@
     "esm": "^3.2.25",
     "expect": "^26.5.3",
     "express": "^4.15.0",
+    "fast-csv": "^4.3.5",
     "jquery": "^3.1.1",
     "lorem-ipsum": "^2.0.3",
     "mongoose": "^4.8.6",

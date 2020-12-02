@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS service_two;
+DROP DATABASE IF EXISTS service_one;
 
-CREATE DATABASE service_two;
+CREATE DATABASE service_one;
 
-USE service_two;
+USE service_one;
 
 CREATE TABLE review (
   id int NOT NULL AUTO_INCREMENT,
@@ -37,13 +37,18 @@ CREATE TABLE products (
  *  to create the database and the tables.*/
 /*
 to load csv's
-LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product.csv' IGNORE
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product.csv'
 INTO TABLE products
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(id, product_id, product_name, comfort_average, durability_average, size_average, stars_average)
 
-LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review.csv' IGNORE
+LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review.csv'
 INTO TABLE review
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(id, product_id, username, comment, verified, locale, upvote, downvote, created_at, size_rating, durability_rating, comfort_rating, stars)
+
 */

@@ -34,7 +34,7 @@ class ReviewsModule extends React.Component {
     Modal.setAppElement('body');
 
     $.ajax({
-      url: `http://localhost:3003/api/reviews/200`,
+      url: `http://localhost:3003/api/reviews/2`,
       method: 'GET',
       success: (data) => {
         this.setState({
