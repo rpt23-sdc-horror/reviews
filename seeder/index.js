@@ -16,7 +16,3 @@ seeder.genReviews(names, dates);
 db.connection.end();
 
 console.log('Seed Finished');
-module.exports = {
-  names,
-  dates
-}

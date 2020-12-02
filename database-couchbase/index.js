@@ -1,9 +1,6 @@
 const couchbase = require("couchbase");
 
-const cluster = new couchbase.Cluster("couchbase://localhost", {
-  username: "Administrator",
-  password: "password",
-});
+
 var bucket = cluster.bucket('default');
 var coll = bucket.defaultCollection();
 
