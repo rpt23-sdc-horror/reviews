@@ -35,29 +35,33 @@ const genProducts = async () => {
 
 const genReviews = async (names, dates) => {
   const writer = csvWriter();
+  let totalProd = 0;
   for (var i = 1; i < 11; i++) {
     writer.pipe(
       fs.createWriteStream('./CSV/review/review.csv' + i, { flags: 'a' })
     )
 
     for (let j = 1; j <= 100000; j++) {
-      const dataTwo = {
-        id: j,
-        product_id: Math.floor(Math.random() * (9000000 - 1) + 1),
-        username: helper.randomName(names),
-        comment: lorem.generateSentences(2),
-        verified: helper.randomBool(),
-        locale: 'US',
-        upvote: helper.randomRating(),
-        downvote: helper.randomRating(),
-        created_at: helper.randomDate(dates),
-        size_rating: helper.randomRating(),
-        durability_rating: helper.randomRating(),
-        comfort_rating: helper.randomRating(),
-        stars: helper.randomRating()
-      };
-      if (!writer.write(dataTwo)) {
-        await new Promise((resolve) => writer.once('drain', resolve));
+      var currentProdID = totalProd += 1;
+      for (let k = 0; k < 5; k++) {
+        const dataTwo = {
+          id: j,
+          product_id: currentProdID,
+          username: helper.randomName(names),
+          comment: lorem.generateSentences(2),
+          verified: helper.randomBool(),
+          locale: 'US',
+          upvote: helper.randomRating(),
+          downvote: helper.randomRating(),
+          created_at: helper.randomDate(dates),
+          size_rating: helper.randomRating(),
+          durability_rating: helper.randomRating(),
+          comfort_rating: helper.randomRating(),
+          stars: helper.randomRating()
+        };
+        if (!writer.write(dataTwo)) {
+          await new Promise((resolve) => writer.once('drain', resolve));
+        }
       }
     }
   }
