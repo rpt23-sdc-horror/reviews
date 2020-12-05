@@ -92,7 +92,7 @@ const create = (review) => {
 };
 
 const read = (id) => {
-  const readOne = 'SELECT * FROM review WHERE product_id = ?';z
+  const readOne = 'SELECT * FROM review WHERE product_id = ?';
 
   connection.query(readOne, [id], (err, results) => {
     if (err) {
