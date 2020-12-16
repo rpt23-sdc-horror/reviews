@@ -45,7 +45,7 @@ const genReviews = async (names, dates) => {
       var currentProdID = totalProd += 1;
       for (let k = 0; k < 5; k++) {
         const dataTwo = {
-          id: j,
+          id: j += 1,
           product_id: currentProdID,
           username: helper.randomName(names),
           comment: lorem.generateSentences(2),
