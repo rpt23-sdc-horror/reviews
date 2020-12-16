@@ -2,7 +2,7 @@ node_modules
 bundle.js
 product
 review
-newrelicAPI.js
+newrelic
 logs
 *.log
 npm-debug.log*
