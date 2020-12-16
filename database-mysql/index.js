@@ -23,7 +23,7 @@ const findAll = function (callback) {
 };
 
 const findReview = function (id, callback) {
-  const queryStr = `SELECT * FROM products INNER JOIN review ON products.product_id = review.product_id AND products.product_id = ${id}`;
+  const queryStr = `SELECT * FROM review WHERE product_id = ${id}`;
 
   connection.query(queryStr, (err, result) => {
     if (err) {

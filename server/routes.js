@@ -4,6 +4,7 @@ const { findReview } = require('../database-mysql/index');
 const dbfunc = require('../database-mysql/index');
 const compression = require('compression');
 const bodyParser = require('body-parser')
+const path = require('path');
 
 const app = express();
 
@@ -23,6 +24,10 @@ const shouldCompress = (req, res) => {
 app.use(compression({ filter: shouldCompress, threshold: 0}));
 
 app.use(express.static(`${__dirname}/../react-client/dist`));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));
+})
 
 app.get('/api/reviews/:productID', (req, res) => {
   const query = req.params.productID;
