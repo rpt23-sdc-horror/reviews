@@ -128,14 +128,14 @@ const deleteOne = (id) => {
 };
 
 const uploadProdCSV = () => {
-  const prodQry1 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv2' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry2 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv3' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry3 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv4' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry4 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv5' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry5 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv6' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry6 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv7' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry7 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv8' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const prodQry8 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/product/product.csv9' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry1 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv2' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry2 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv3' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry3 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv4' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry4 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv5' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry5 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv6' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry6 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv7' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry7 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv8' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const prodQry8 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product.csv9' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
 
   connection.query(prodQry1, (err, results) => {
     if (err) {
@@ -180,16 +180,15 @@ const uploadProdCSV = () => {
 }
 
 const uploadRevCSV = () => {
-  const revQry1 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv1' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry2 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv2' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry3 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv3' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry4 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv4' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry5 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv5' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry6 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv6' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry7 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv7' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry8 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv8' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry9 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv9' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
-  const revQry10 = "LOAD DATA LOCAL INFILE 'C:/Users/Frnkai/Test/SDC/service-reviews/CSV/review/review.csv10' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry1 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv1' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry2 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv2' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry3 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv3' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry4 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv4' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry5 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv5' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry6 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv6' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry7 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv7' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry8 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv8' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
+  const revQry9 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review.csv9' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
 
   connection.query(revQry1, (err, results) => {
     if (err) {
@@ -232,11 +231,6 @@ const uploadRevCSV = () => {
     }
   })
   connection.query(revQry9, (err, results) => {
-    if (err) {
-      console.log(err);
-    }
-  })
-  connection.query(revQry10, (err, results) => {
     if (err) {
       console.log(err);
     }
