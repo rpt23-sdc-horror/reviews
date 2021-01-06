@@ -3,8 +3,9 @@ const cors = require('cors');
 const { findReview } = require('../database-mysql/index');
 const dbfunc = require('../database-mysql/index');
 const compression = require('compression');
-const bodyParser = require('body-parser')
 const path = require('path');
+// const client = require('./index');
+const { stringify } = require('querystring');
 
 const app = express();
 
@@ -40,6 +41,37 @@ app.get('/api/reviews/:productID', (req, res) => {
     }
   });
 });
+
+// app.get('/api/reviews/:productID', async(req, res) => {
+//   const query = req.params.productID;
+//   try {
+//     client.get(query, async (err, data) => {
+//       if (err) {
+//         res.status(500);
+//         throw (err);
+//       }
+//       if (data) {
+//         res.status(200).send(data);
+//       } else {
+//         findReview(query, (err, result) => {
+//           if (err) {
+//             res.status(500);
+//             throw (err);
+//           } else {
+//             client.setex(query, 1000, JSON>stringify(result));
+//             if (data === undefined) {
+//               return res.status(400).send('Incorrect product_id');
+//             }
+//           }
+//           res.status(200).send(result);
+//         })
+//       }
+//     })
+//   }
+//   catch(err) {
+//     res.status(400).send(err);
+//   }
+// })
 
 app.get('/shop/:productID/:styleID', (req, res) => {
   const query = req.params.productID;
