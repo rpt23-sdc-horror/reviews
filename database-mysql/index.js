@@ -127,7 +127,7 @@ const deleteOne = (id) => {
   })
 };
 
-const uploadProdCSV = () => {
+const uploadProdCSV = async () => {
   const prodQry1 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product/product.csv2' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const prodQry2 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product/product.csv3' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const prodQry3 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product/product.csv4' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
@@ -137,49 +137,49 @@ const uploadProdCSV = () => {
   const prodQry7 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product/product.csv8' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const prodQry8 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/product/product.csv9' INTO TABLE products FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
 
-  connection.query(prodQry1, (err, results) => {
+  await connection.query(prodQry1, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry2, (err, results) => {
+  await connection.query(prodQry2, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry3, (err, results) => {
+  await connection.query(prodQry3, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry4, (err, results) => {
+  await connection.query(prodQry4, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry5, (err, results) => {
+  await connection.query(prodQry5, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry6, (err, results) => {
+  await connection.query(prodQry6, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry7, (err, results) => {
+  await connection.query(prodQry7, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(prodQry8, (err, results) => {
+  await connection.query(prodQry8, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
 }
 
-const uploadRevCSV = () => {
+const uploadRevCSV = async () => {
   const revQry1 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review/review.csv1' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const revQry2 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review/review.csv2' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const revQry3 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review/review.csv3' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
@@ -190,47 +190,47 @@ const uploadRevCSV = () => {
   const revQry8 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review/review.csv8' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
   const revQry9 = "LOAD DATA LOCAL INFILE '/home/ec2-user/service-reviews/CSV/review/review.csv9' INTO TABLE review FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';";
 
-  connection.query(revQry1, (err, results) => {
+  await connection.query(revQry1, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry2, (err, results) => {
+  await connection.query(revQry2, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry3, (err, results) => {
+  await connection.query(revQry3, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry4, (err, results) => {
+  await connection.query(revQry4, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry5, (err, results) => {
+  await connection.query(revQry5, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry6, (err, results) => {
+  await connection.query(revQry6, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry7, (err, results) => {
+  await connection.query(revQry7, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry8, (err, results) => {
+  await connection.query(revQry8, (err, results) => {
     if (err) {
       console.log(err);
     }
   })
-  connection.query(revQry9, (err, results) => {
+  await connection.query(revQry9, (err, results) => {
     if (err) {
       console.log(err);
     }
