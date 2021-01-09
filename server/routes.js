@@ -26,7 +26,7 @@ app.use(compression({ filter: shouldCompress, threshold: 0}));
 
 app.use(express.static(`${__dirname}/../react-client/dist`));
 
-app.get('*', (req, res) => {
+app.get('/:current', (req, res) => {
   res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));
 })
 
@@ -41,7 +41,6 @@ app.get('/api/reviews/:productID', (req, res) => {
     }
   });
 });
-
 // app.get('/api/reviews/:productID', async(req, res) => {
 //   const query = req.params.productID;
 //   try {
