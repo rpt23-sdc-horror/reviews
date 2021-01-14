@@ -9,6 +9,19 @@ const { stringify } = require('querystring');
 
 const app = express();
 
+const redis = require("redis");
+const client = redis.createClient({
+  host: '127.0.0.1',
+  port: 6379
+});
+
+client.on('ready', () => {
+  console.log('Redis listening on port 6379');
+})
+client.on('error', () => {
+  console.log('Error in Redis');
+})
+
 app.use(cors({
   origin: '*',
 }));
@@ -22,7 +35,7 @@ const shouldCompress = (req, res) => {
   return compression.filter(req, res);
 };
 
-app.use(compression({ filter: shouldCompress, threshold: 0}));
+app.use(compression({ filter: shouldCompress, threshold: 0 }));
 
 app.use(express.static(`${__dirname}/../react-client/dist`));
 
@@ -30,47 +43,27 @@ app.get('/:current', (req, res) => {
   res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));
 })
 
-app.get('/api/reviews/:productID', (req, res) => {
+
+app.get('/api/reviews/:productID', async (req, res) => {
   const query = req.params.productID;
-  findReview(query, (err, result) => {
-    if (err) {
-      res.status(500);
-      throw (err);
+  const clientQ = query.toString();
+  client.get(clientQ, async (err, data) => {
+    if (err) throw err;
+    const convert = JSON.parse(data);
+    if (data) {
+      res.status(200).send(convert);
     } else {
-      res.status(200).send(result);
+      const data = await findReview(query, async (err, result) => {
+        if (err) res.status(500);
+
+        else {
+          const cache = await client.setex(query, 600, JSON.stringify(result));
+          res.status(200).send(result);
+        }
+      })
     }
-  });
-});
-// app.get('/api/reviews/:productID', async(req, res) => {
-//   const query = req.params.productID;
-//   try {
-//     client.get(query, async (err, data) => {
-//       if (err) {
-//         res.status(500);
-//         throw (err);
-//       }
-//       if (data) {
-//         res.status(200).send(data);
-//       } else {
-//         findReview(query, (err, result) => {
-//           if (err) {
-//             res.status(500);
-//             throw (err);
-//           } else {
-//             client.setex(query, 1000, JSON>stringify(result));
-//             if (data === undefined) {
-//               return res.status(400).send('Incorrect product_id');
-//             }
-//           }
-//           res.status(200).send(result);
-//         })
-//       }
-//     })
-//   }
-//   catch(err) {
-//     res.status(400).send(err);
-//   }
-// })
+  })
+})
 
 app.get('/shop/:productID/:styleID', (req, res) => {
   const query = req.params.productID;

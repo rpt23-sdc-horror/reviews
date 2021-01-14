@@ -14,7 +14,7 @@
     "seed": "node seeder/index.js",
     "set-up": "mysql -u root < schema.sql -p",
     "stress": "k6 k6stress.js",
-    "k6" : "k6 run k6stress.js"
+    "k6": "k6 run k6stress.js"
   },
   "author": "Martin Sung",
   "license": "MIT",
