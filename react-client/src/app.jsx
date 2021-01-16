@@ -30,11 +30,15 @@ class ReviewsModule extends React.Component {
   componentDidMount() {
     const productID = window.location.pathname.substring(1);
     // const productID = url[2];
+    const url = `http://localhost:3003/api/reviews/${productID}`;
+    // if (productID.includes('loader')) {
+    //   url = `http://34.219.224.96:3003/${productID}`;
+    // }
 
     Modal.setAppElement('body');
 
     $.ajax({
-      url: `http://34.219.224.96:3003/api/reviews/${productID}`,
+      url: `http://localhost:3003/api/reviews/${productID}`,
       method: 'GET',
       success: (data) => {
         this.setState({
